@@ -1,0 +1,1190 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>海外社交直播英语练习</title>
+<meta name="description" content="海外社交直播业务英语：6 个场景的精读、句法拆分、词汇、回译与角色对练。">
+<style>
+  :root{
+    --paper:#f2ecdf;
+    --paper-2:#faf6ec;
+    --paper-3:#e9e1d0;
+    --ink:#201d18;
+    --ink-2:#5c5446;
+    --ink-3:#6f6553;
+    --rule:#d8cdb6;
+    --rule-soft:rgba(32,29,24,.09);
+    --accent:#ad3a26;
+    --accent-soft:rgba(173,58,38,.08);
+    --green:#2d5748;
+    --mark:rgba(238,212,124,.68);
+    --sans:system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei","Noto Sans CJK SC",sans-serif;
+    --text-small:.8125rem;
+    --text-ui:.875rem;
+    --text-body:1rem;
+    --text-reading:1.125rem;
+    --text-heading:1.375rem;
+    --text-title:clamp(1.625rem,3.4vw,2rem);
+    --maxw:1160px;
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%;scrollbar-gutter:stable}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:var(--text-body);
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:0;
+    background:
+      radial-gradient(900px 620px at 82% -12%,rgba(173,58,38,.07),transparent 62%),
+      radial-gradient(760px 560px at -8% 34%,rgba(45,87,72,.055),transparent 60%);
+  }
+  .grain{
+    position:fixed;
+    inset:0;
+    z-index:80;
+    pointer-events:none;
+    opacity:.035;
+    mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  ::selection{background:var(--mark);color:var(--ink)}
+  button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+  a{color:inherit;text-decoration:none}
+  h1,h2,h3{font-weight:600}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+
+  /* ---------- masthead ---------- */
+  .masthead{
+    position:sticky;
+    top:0;
+    z-index:50;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:24px;
+    padding:13px clamp(20px,4vw,44px);
+    background:rgba(242,236,223,.9);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--rule);
+  }
+  .brand{display:flex;align-items:center;gap:14px;min-width:0}
+  .brand-mark{
+    flex:none;
+    width:38px;
+    height:38px;
+    display:grid;
+    place-items:center;
+    background:var(--accent);
+    color:#fbf5e7;
+    font-size:var(--text-body);
+    letter-spacing:.03em;
+    transform:rotate(-2.5deg);
+    box-shadow:2px 2px 0 var(--ink);
+  }
+  .brand-text{display:flex;flex-direction:column;min-width:0;line-height:1.25}
+  .brand-text strong{font-size:var(--text-reading);font-weight:500;letter-spacing:.01em;white-space:nowrap}
+  .brand-text small{font-size:var(--text-small);letter-spacing:.03em;color:var(--ink-3);text-transform:uppercase;white-space:nowrap}
+  .meter{display:flex;align-items:center;gap:12px;flex:none}
+  .meter-track{width:132px;height:3px;background:var(--rule);position:relative;overflow:hidden}
+  .meter-fill{position:absolute;inset:0 auto 0 0;width:0;background:var(--green);transition:width .45s cubic-bezier(.2,.7,.2,1)}
+  .meter-text{font-size:var(--text-small);letter-spacing:.03em;color:var(--ink-3);white-space:nowrap}
+
+  /* ---------- shell ---------- */
+  .shell{
+    position:relative;
+    z-index:1;
+    display:grid;
+    grid-template-columns:252px minmax(0,1fr);
+    gap:clamp(32px,5vw,68px);
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:38px clamp(20px,4vw,44px) 120px;
+  }
+  .side{
+    position:sticky;
+    top:84px;
+    align-self:start;
+    min-width:0;
+    max-height:calc(100vh - 110px);
+    overflow-y:auto;
+    padding-right:6px;
+  }
+  .side::-webkit-scrollbar{width:6px}
+  .side::-webkit-scrollbar-thumb{background:var(--rule);border-radius:3px}
+  .side-head h2{
+    font-size:var(--text-heading);
+    margin:2px 0 0;
+    letter-spacing:.01em;
+  }
+  .eyebrow{
+    font-size:var(--text-small);
+    letter-spacing:.03em;
+    text-transform:uppercase;
+    color:var(--ink-3);
+    margin:0 0 9px;
+    display:flex;
+    align-items:center;
+    gap:9px;
+  }
+  .eyebrow::before{content:"";width:15px;height:1px;background:var(--accent);flex:none}
+
+  .scene-nav{margin-top:22px;border-top:1px solid var(--ink);min-width:0}
+  .scene-row{
+    border-bottom:1px solid var(--rule-soft);
+    border-left:2px solid transparent;
+    padding:11px 0 10px 11px;
+    transition:border-color .2s,background .2s;
+  }
+  .scene-row.is-active{border-left-color:var(--accent);background:linear-gradient(90deg,var(--accent-soft),transparent 72%)}
+  .scene-link{display:flex;gap:10px;text-align:left;width:100%;align-items:baseline}
+  .scene-num{font-size:var(--text-small);color:var(--ink-3);flex:none;padding-top:2px}
+  .scene-row.is-active .scene-num{color:var(--accent)}
+  .scene-title{font-size:var(--text-ui);line-height:1.45;color:var(--ink-2);transition:color .2s}
+  .scene-row.is-active .scene-title{color:var(--ink)}
+  .scene-link:hover .scene-title{color:var(--accent)}
+  .dots{display:flex;gap:5px;margin:7px 0 0 25px}
+  .dot{
+    width:5px;height:5px;border-radius:50%;
+    background:transparent;
+    box-shadow:inset 0 0 0 1px var(--rule);
+    transition:.2s;
+  }
+  .dot:hover{box-shadow:inset 0 0 0 1px var(--accent)}
+  .dot.is-on{background:var(--green);box-shadow:inset 0 0 0 1px var(--green)}
+  .dot.is-here{box-shadow:inset 0 0 0 1px var(--accent),0 0 0 2px var(--accent-soft)}
+
+  .method{margin-top:26px;border-top:1px solid var(--rule);padding-top:14px}
+  .method summary{
+    list-style:none;
+    cursor:pointer;
+    font-size:var(--text-small);
+    letter-spacing:.03em;
+    text-transform:uppercase;
+    color:var(--ink-2);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  .method summary::-webkit-details-marker{display:none}
+  .method summary span{color:var(--ink-3)}
+  .method summary::after{content:"+";font-size:var(--text-ui);color:var(--accent)}
+  .method[open] summary::after{content:"−"}
+  .method ol{margin:14px 0 0;padding:0;list-style:none;counter-reset:m;display:grid;gap:9px}
+  .method li{counter-increment:m;font-size:var(--text-small);line-height:1.6;color:var(--ink-2);padding-left:20px;position:relative}
+  .method li::before{
+    content:counter(m,decimal-leading-zero);
+    position:absolute;left:0;top:2px;
+font-size:var(--text-small);color:var(--accent);
+  }
+  .method li b{display:block;color:var(--ink);font-weight:500}
+  .linkbtn{
+    margin-top:14px;
+font-size:var(--text-small);letter-spacing:.03em;text-transform:uppercase;
+    color:var(--ink-3);border-bottom:1px dotted var(--ink-3);padding-bottom:2px;
+  }
+  .linkbtn:hover{color:var(--accent);border-color:var(--accent)}
+  .side-note{font-size:var(--text-small);letter-spacing:.03em;color:var(--ink-3);margin:20px 0 0;line-height:1.8}
+
+  /* ---------- scene header ---------- */
+  .main{min-width:0;max-width:800px}
+  .scene-head{position:relative;padding-top:6px;margin-bottom:8px}
+  .scene-head h1{
+    font-size:var(--text-title);
+    line-height:1.14;
+    letter-spacing:-.005em;
+    margin:0 0 14px;
+    max-width:19ch;
+  }
+  .scene-meta{font-size:var(--text-small);letter-spacing:.03em;color:var(--ink-3);text-transform:uppercase}
+  .objectives{list-style:none;margin:24px 0 0;padding:0;display:grid;gap:7px;max-width:62ch;font-size:var(--text-ui);color:var(--ink-2)}
+  .objectives li{display:flex;gap:10px;line-height:1.65}
+  .objectives li::before{content:"—";color:var(--accent);flex:none}
+
+  .brief{
+    margin:0 0 34px;
+    background:var(--paper-2);
+    border:1px solid var(--rule);
+    border-left:3px solid var(--accent);
+    padding:20px 24px 22px;
+    box-shadow:5px 5px 0 rgba(32,29,24,.045);
+    max-width:66ch;
+  }
+  .brief h2{font-size:var(--text-heading);margin:0 0 8px;line-height:1.3}
+  .brief p{margin:0;font-size:var(--text-ui);color:var(--ink-2);line-height:1.8}
+  .brief blockquote{
+    margin:12px 0;
+    padding:2px 0 2px 16px;
+    border-left:2px solid var(--rule);
+    font-style:italic;
+    font-size:var(--text-reading);
+    line-height:1.6;
+    color:var(--ink);
+  }
+  .brief .task{font-size:var(--text-ui);color:var(--ink-2)}
+
+  /* ---------- tabs ---------- */
+  .tabs{display:flex;flex-wrap:wrap;border-bottom:1px solid var(--rule);margin:34px 0 26px}
+  .tab{
+    position:relative;
+    display:flex;align-items:baseline;gap:6px;
+    padding:11px 2px 13px;
+    margin-right:clamp(18px,3.4vw,34px);
+font-size:var(--text-small);letter-spacing:.03em;
+    color:var(--ink-3);
+    transition:color .2s;
+  }
+  .tab:hover{color:var(--ink)}
+  .tab.is-active{color:var(--ink);font-weight:600}
+  .tab.is-active::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--accent)}
+  .tab-done{width:4px;height:4px;border-radius:50%;background:var(--green);align-self:center;margin-left:2px}
+
+  /* ---------- panel furniture ---------- */
+  .panel{min-height:320px;animation:rise .45s cubic-bezier(.2,.7,.2,1) both}
+  @keyframes rise{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}
+  .panel-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:6px}
+  .body-title{font-size:var(--text-heading);line-height:1.25;margin:0;letter-spacing:.002em}
+  .lede{font-size:var(--text-ui);font-style:italic;color:var(--ink-2);margin:10px 0 26px;max-width:60ch;line-height:1.75}
+  .tools{display:flex;gap:10px;flex:none;padding-bottom:4px}
+
+  .switch{
+font-size:var(--text-small);letter-spacing:.03em;
+    border:1px solid var(--rule);
+    padding:7px 13px;
+    border-radius:999px;
+    color:var(--ink-2);
+    white-space:nowrap;
+    transition:.2s;
+  }
+  .switch:hover{border-color:var(--ink-2)}
+  .switch[aria-pressed="true"]{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+  .btn-line{
+font-size:var(--text-small);letter-spacing:.03em;text-transform:uppercase;
+    border:1px solid var(--rule);
+    background:var(--paper-2);
+    padding:8px 13px;
+    color:var(--ink-2);
+    transition:.2s;
+    white-space:nowrap;
+  }
+  .btn-line:hover{border-color:var(--accent);color:var(--accent)}
+
+  /* ---------- reading ---------- */
+  .prose{max-width:66ch}
+  .para-block{margin:0 0 27px}
+  .para{font-size:var(--text-reading);line-height:1.8;margin:0;letter-spacing:.001em;color:var(--ink)}
+  .sent{cursor:pointer;border-radius:1px;transition:box-shadow .16s,color .16s}
+  .sent:hover{box-shadow:inset 0 -.52em 0 var(--mark)}
+  .sent:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .para-zh{
+    display:none;
+    font-size:var(--text-ui);
+    line-height:1.95;
+    color:var(--ink-2);
+    border-left:2px solid var(--rule);
+    padding-left:15px;
+    margin:12px 0 0;
+  }
+  .prose.show-zh .para-zh{display:block;animation:rise .3s both}
+
+  /* ---------- syntax ---------- */
+  .syn-list{margin-top:10px;border-top:1px solid var(--ink)}
+  .syn-card{border-bottom:1px solid var(--rule)}
+  .syn-card summary{
+    display:grid;
+    grid-template-columns:40px minmax(0,1fr) 20px;
+    gap:12px;
+    align-items:start;
+    padding:17px 0;
+    cursor:pointer;
+    list-style:none;
+  }
+  .syn-card summary::-webkit-details-marker{display:none}
+  .syn-num{font-size:var(--text-small);color:var(--accent);padding-top:7px;letter-spacing:.03em}
+  .syn-line{font-size:var(--text-reading);line-height:1.9;color:var(--ink);transition:color .2s}
+  .syn-card summary:hover .syn-line{color:var(--accent)}
+  .chunk + .chunk::before{
+    content:"/";
+    display:inline-block;
+    margin:0 .28em;
+    color:var(--accent);
+    opacity:.42;
+    font-size:var(--text-ui);
+    transform:translateY(-1px);
+  }
+  .chev{
+    width:7px;height:7px;margin-top:10px;justify-self:end;
+    border-right:1px solid var(--ink-2);
+    border-bottom:1px solid var(--ink-2);
+    transform:rotate(45deg);
+    transition:transform .25s;
+  }
+  .syn-card[open] .chev{transform:rotate(-135deg)}
+  .syn-inner{padding:0 0 24px 52px;animation:rise .3s both}
+  .syn-dl{margin:0;display:grid;gap:4px}
+  .syn-dl dt{font-size:var(--text-small);color:var(--ink-3);letter-spacing:.03em;margin-top:8px}
+  .syn-dl dd{margin:0 0 6px;font-size:var(--text-ui);line-height:1.82;color:var(--ink-2);max-width:62ch}
+  .syn-inner .btn-line{margin-top:14px}
+
+  /* ---------- vocabulary ---------- */
+  .vocab-wrap{margin-top:6px}
+  .vocab-block{margin-bottom:42px}
+  .vocab-block h3{
+    font-size:var(--text-reading);
+    margin:0 0 14px;
+    display:flex;align-items:baseline;gap:10px;
+  }
+  .vocab-block h3 span{font-size:var(--text-small);color:var(--ink-3);letter-spacing:.03em}
+  .table-scroll{overflow-x:auto}
+  .vtable{width:100%;border-collapse:collapse;font-size:var(--text-ui)}
+  .vtable th{
+font-size:var(--text-small);letter-spacing:.03em;text-transform:uppercase;
+    color:var(--ink-3);text-align:left;font-weight:400;
+    padding:0 18px 8px 0;border-bottom:1px solid var(--ink);
+    white-space:nowrap;
+  }
+  .vtable td{
+    padding:12px 18px 12px 0;
+    border-bottom:1px solid var(--rule-soft);
+    vertical-align:top;line-height:1.6;color:var(--ink-2);
+  }
+  .vtable td:first-child{color:var(--ink);font-size:var(--text-body);min-width:120px}
+  .vtable tbody tr{transition:background .15s}
+  .vtable tbody tr:hover{background:rgba(255,255,255,.4)}
+  .word{display:inline-flex;align-items:center;gap:7px;text-align:left;color:inherit}
+  .word svg{width:14px;height:14px;flex:none;opacity:.4;transition:.2s}
+  .word:hover{color:var(--accent)}
+  .word:hover svg{opacity:1}
+  .is-blurred td.zh{filter:blur(5px);cursor:help;user-select:none;transition:filter .18s}
+  .is-blurred td.zh:hover{filter:none}
+
+  /* ---------- translation ---------- */
+  .zh-source{
+    border-top:1px solid var(--ink);
+    border-bottom:1px solid var(--rule);
+    padding:18px 0 8px;
+    margin-bottom:22px;
+    max-width:66ch;
+  }
+  .zh-source p{font-size:var(--text-body);line-height:1.95;margin:0 0 14px;color:var(--ink)}
+  .zh-label{font-size:var(--text-small);letter-spacing:.03em;color:var(--accent);margin:6px 0 10px;text-transform:uppercase}
+  .writing{max-width:66ch}
+  textarea.area{
+    width:100%;
+    min-height:300px;
+    resize:vertical;
+    font-family:var(--sans);
+    font-size:var(--text-body);
+    line-height:1.95;
+    color:var(--ink);
+    background:var(--paper-2);
+    border:1px solid var(--rule);
+    padding:17px 19px;
+    border-radius:0;
+    transition:border-color .2s;
+  }
+  textarea.area::placeholder{color:var(--ink-3);font-style:italic}
+  textarea.area:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+  .writing-foot{display:flex;align-items:center;gap:14px;margin-top:10px;flex-wrap:wrap}
+  .count{font-size:var(--text-small);letter-spacing:.03em;color:var(--ink-3)}
+  .save-dot{font-size:var(--text-small);letter-spacing:.03em;color:var(--ink-3);display:flex;align-items:center;gap:6px}
+  .save-dot::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--green);opacity:.7}
+  .writing-foot .btn-line{margin-left:auto}
+  .original{margin-top:34px;border-top:1px solid var(--rule);padding-top:22px;max-width:66ch}
+  .original p{font-size:var(--text-body);line-height:1.9;margin:0 0 15px;color:var(--ink-2)}
+  .orig-i{font-size:var(--text-small);color:var(--accent);vertical-align:.35em;margin-right:9px}
+
+  /* ---------- output ---------- */
+  .topic{margin:6px 0 4px;padding-left:20px;border-left:3px solid var(--accent);max-width:64ch}
+  .topic-en{font-size:var(--text-reading);line-height:1.5;font-style:italic;margin:0}
+  .topic-zh{font-size:var(--text-ui);color:var(--ink-2);margin:9px 0 0}
+  .roleplay{margin-top:38px;border-top:1px solid var(--rule);padding-top:22px}
+  .roles{display:flex;flex-wrap:wrap;gap:8px;margin:2px 0 12px}
+  .role{
+    font-size:var(--text-ui);color:var(--ink-2);
+    border:1px solid var(--rule);
+    padding:4px 11px;
+    border-radius:999px;
+    background:var(--paper-2);
+  }
+  .prompt-box{
+    position:relative;
+    background:var(--paper-2);
+    border:1px solid var(--rule);
+    padding:18px 20px 56px;
+    max-width:66ch;
+  }
+  .prompt-box p{margin:0;font-size:var(--text-ui);line-height:1.85;color:var(--ink-2)}
+  .prompt-box .btn-line{position:absolute;right:14px;bottom:14px}
+
+  /* ---------- panel footer ---------- */
+  .panel-foot{
+    margin-top:52px;
+    border-top:1px solid var(--ink);
+    padding-top:18px;
+    display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;
+  }
+  .done-btn{
+font-size:var(--text-small);letter-spacing:.03em;text-transform:uppercase;
+    border:1px solid var(--ink);
+    padding:10px 15px;
+    color:var(--ink);
+    transition:.2s;
+  }
+  .done-btn:hover{background:var(--ink);color:var(--paper-2)}
+  .done-btn.is-done{background:var(--green);border-color:var(--green);color:#f7f2e4}
+  .done-btn.is-done::before{content:"✓ ";}
+  .foot-hint{font-size:var(--text-small);font-style:italic;color:var(--ink-3)}
+  .next-scene{
+    margin-left:auto;
+font-size:var(--text-small);letter-spacing:.03em;text-transform:uppercase;
+    color:var(--ink-2);display:inline-flex;align-items:center;gap:8px;
+    border-bottom:1px solid var(--rule);padding-bottom:3px;
+    transition:.2s;
+  }
+  .next-scene span{color:var(--accent);font-size:var(--text-small);transition:transform .2s}
+  .next-scene:hover{color:var(--accent);border-color:var(--accent)}
+  .next-scene:hover span{transform:translateX(3px)}
+
+  /* ---------- drawer ---------- */
+  .scrim{
+    position:fixed;inset:0;z-index:60;
+    background:rgba(32,29,24,.3);
+    opacity:0;pointer-events:none;
+    transition:opacity .3s;
+  }
+  .scrim.is-open{opacity:1;pointer-events:auto}
+  .drawer{
+    position:fixed;
+    top:0;right:0;bottom:0;
+    z-index:70;
+    width:min(468px,100vw);
+    background:var(--paper-2);
+    border-left:1px solid var(--rule);
+    box-shadow:-24px 0 70px rgba(32,29,24,.16);
+    transform:translateX(102%);
+    transition:transform .36s cubic-bezier(.2,.7,.2,1);
+    display:flex;flex-direction:column;
+    padding:26px 30px 34px;
+    overflow-y:auto;
+  }
+  .drawer.is-open{transform:none}
+  .drawer-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:22px}
+  .drawer-head .eyebrow{margin:0}
+  .icon-btn{
+    width:32px;height:32px;border:1px solid var(--rule);border-radius:50%;
+    display:grid;place-items:center;font-size:var(--text-body);color:var(--ink-2);
+    transition:.2s;
+  }
+  .icon-btn:hover{border-color:var(--accent);color:var(--accent)}
+  .d-chunks{font-size:var(--text-heading);line-height:1.66;margin:0 0 20px}
+  .d-slash{color:var(--accent);opacity:.45;font-size:var(--text-ui);margin:0 .3em}
+  .d-analysis{margin:18px 0 0;border-top:1px solid var(--rule);padding-top:16px}
+  .d-analysis dt{font-size:var(--text-small);color:var(--ink-3);letter-spacing:.03em;margin-top:12px}
+  .d-analysis dt:first-child{margin-top:0}
+  .d-analysis dd{margin:4px 0 0;font-size:var(--text-ui);line-height:1.85;color:var(--ink-2)}
+  .drawer .btn-line{margin-top:16px}
+  body.no-scroll{overflow:hidden}
+
+  /* ---------- toast ---------- */
+  .toast{
+    position:fixed;left:50%;bottom:30px;z-index:95;
+    transform:translate(-50%,12px);
+    background:var(--ink);color:var(--paper-2);
+font-size:var(--text-small);letter-spacing:.03em;
+    padding:10px 17px;
+    opacity:0;pointer-events:none;
+    transition:opacity .25s,transform .25s;
+  }
+  .toast.is-show{opacity:1;transform:translate(-50%,0)}
+
+  /* ---------- responsive ---------- */
+  @media (max-width:980px){
+    .shell{grid-template-columns:minmax(0,1fr);gap:26px;padding-top:22px}
+    .side{position:static;width:100%;max-height:none;overflow:visible;padding-right:0}
+    .side-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+    .side-head .eyebrow{display:none}
+    .scene-nav{margin-top:12px;display:flex;gap:8px;overflow-x:auto;border-top:0;padding-bottom:8px;scrollbar-width:thin;scrollbar-color:var(--rule) transparent}
+    .scene-nav::-webkit-scrollbar{height:3px}
+    .scene-nav::-webkit-scrollbar-thumb{background:var(--rule)}
+    .scene-row{flex:0 0 auto;border:1px solid var(--rule);border-left:1px solid var(--rule);padding:8px 12px;background:var(--paper-2)}
+    .scene-row.is-active{border-color:var(--accent);background:var(--accent-soft)}
+    .scene-num{display:none}
+    .scene-title{font-size:var(--text-ui);max-width:150px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}
+    .dots{display:none}
+    .method{margin-top:8px;border-top:0;padding-top:0}
+    .method ol{max-width:60ch}
+    .side-note{display:none}
+    .main{max-width:none}
+    .scene-head h1{max-width:none}
+    .brief{padding:18px 18px 20px;box-shadow:none}
+    .panel-head{align-items:flex-start;flex-wrap:wrap}
+    .syn-inner{padding-left:0}
+    .drawer{width:100%;padding:22px 22px 30px;border-left:0}
+    .masthead{padding:10px 18px}
+    .brand-text small{display:none}
+    .meter-track{width:76px}
+  }
+  @media (max-width:720px){
+    .tab{margin-right:14px}
+  }
+  @media (max-width:520px){
+    .masthead{gap:12px}
+    .meter-track{width:clamp(28px,11vw,56px)}
+    .tabs{margin-top:26px}
+    .vtable td:first-child{min-width:96px}
+    .writing-foot .btn-line{margin-left:0}
+    .foot-hint{display:none}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation-duration:.001ms !important;transition-duration:.001ms !important}
+  }
+</style>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="masthead">
+  <a class="brand" href="#s1/read" id="brand">
+    <span class="brand-mark">EN</span>
+    <span class="brand-text">
+      <strong>海外社交直播英语</strong>
+      <small>Live-streaming business English</small>
+    </span>
+  </a>
+  <div class="meter">
+    <div class="meter-track" role="progressbar" aria-label="总练习进度" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" id="meterTrack">
+      <div class="meter-fill" id="meterFill"></div>
+    </div>
+    <span class="meter-text" id="meterText">0 / 30</span>
+  </div>
+</header>
+
+<div class="shell">
+  <aside class="side">
+    <div class="side-head">
+      <p class="eyebrow">Training material</p>
+      <h2>练习场景</h2>
+    </div>
+    <nav class="scene-nav" id="sceneNav" aria-label="场景"></nav>
+    <details class="method">
+      <summary>练习方法 <span>6 步</span></summary>
+      <ol id="methodList"></ol>
+      <button class="linkbtn" data-act="reset">重置全部进度</button>
+    </details>
+    <p class="side-note">整理日期：2026-11-24<br>6 个场景 · 每场 5 步</p>
+  </aside>
+
+  <main class="main">
+    <div id="stage"></div>
+  </main>
+</div>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle" aria-hidden="true">
+  <div class="drawer-head">
+    <p class="eyebrow" id="drawerTitle">Sentence <span id="drawerNum">01</span></p>
+    <button class="icon-btn" data-act="close-drawer" aria-label="关闭解析">×</button>
+  </div>
+  <div id="drawerBody"></div>
+</aside>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>window.__DATA__ = {"meta": {"title": "海外社交直播英语练习", "note": "整理日期：2026-11-24", "sceneCount": 6}, "method": [{"name": "概览阅读", "desc": "先通读英文正文，理解人物、场景、主要问题和处理方式。"}, {"name": "长难句拆分", "desc": "自己先标出主语、谓语、宾语、表语、状语和从句，再对照“逐句拆分”，与 AI 核对不确定的地方。"}, {"name": "单词、表达、固定搭配学习", "desc": "结合原句学习读音、含义和用法，并尝试自己造句。"}, {"name": "根据中文翻译写回英文", "desc": "阅读每篇文章“重点词汇复习”之后的“中文翻译”部分，暂时不看英文原文，尝试写回英文，再对照检查语法、搭配和遗漏的信息。自然、准确的表达也可以，不必逐字复原。"}, {"name": "根据主题和内容 freestyle", "desc": "脱离原文，用自己的英文自由口述或写作，表达对这个业务问题的判断和解决办法。"}, {"name": "和 AI 就这个话题延伸对话", "desc": "让 AI 扮演平台运营、公会负责人或主播，围绕当前场景继续提问、回应和角色对练。"}], "steps": [{"id": "read", "label": "通读", "hint": "读英文正文，点句子看拆分"}, {"id": "syntax", "label": "句法", "hint": "先自己划意群，再核对"}, {"id": "vocab", "label": "词汇", "hint": "表达、搭配与发音"}, {"id": "translate", "label": "回译", "hint": "看中文写回英文"}, {"id": "output", "label": "输出", "hint": "freestyle 与角色对练"}], "scenes": [{"id": 1, "title": "平台与海外公会首次沟通", "objectives": ["了解公会的主播规模、招募方式和当前困难。", "提出小规模试运营，明确合作预期。", "表达可以提供的支持，避免保证收入。"], "bodyTitle": "Working with a New Agency", "paragraphs": [{"segs": [{"n": 1, "t": "Emma works for a social live-streaming platform."}, {"n": 0, "t": " "}, {"n": 2, "t": "Her job is to find new agencies and help them grow."}], "zh": "Emma 在一家社交直播平台工作。她的工作是寻找新公会，并帮助它们发展。"}, {"segs": [{"n": 3, "t": "Today, she has an online meeting with an agency owner in Malaysia."}, {"n": 0, "t": " "}, {"n": 4, "t": "The agency has twenty hosts, but only twelve of them stream regularly."}], "zh": "今天，她与马来西亚的一位公会负责人开线上会议。这家公会有二十位主播，但其中只有十二位定期开播。"}, {"segs": [{"n": 5, "t": "Before introducing the platform, Emma asks a few questions."}], "zh": "在介绍平台之前，Emma 先问了几个问题。"}, {"segs": [{"n": 0, "t": "“"}, {"n": 6, "t": "How do you recruit new hosts?"}, {"n": 0, "t": " "}, {"n": 7, "t": "What support do you offer them?"}, {"n": 0, "t": " "}, {"n": 8, "t": "And what is your biggest challenge right now?"}, {"n": 0, "t": "”"}], "zh": "“你们如何招募新主播？你们为主播提供什么支持？还有，你们目前最大的困难是什么？”"}, {"segs": [{"n": 9, "t": "The owner explains that many new hosts leave after their first week because they have very few viewers."}], "zh": "负责人解释说，很多新主播在第一周结束后就离开了，因为他们的观众很少。"}, {"segs": [{"n": 10, "t": "Emma suggests a small trial."}, {"n": 0, "t": " "}, {"n": 11, "t": "The agency can start with five hosts and follow a regular streaming schedule for two weeks."}, {"n": 0, "t": " "}, {"n": 12, "t": "During the trial, her team will review their performance and offer practical advice."}], "zh": "Emma 建议进行一次小规模试运营。公会可以先安排五位主播，按照规律的开播计划试行两周。试运营期间，她的团队会评估主播的表现，并提供实用建议。"}, {"segs": [{"n": 13, "t": "“We cannot promise a certain level of income,” Emma says."}, {"n": 0, "t": " “"}, {"n": 14, "t": "But we can help your hosts improve their content and build stronger relationships with viewers."}, {"n": 0, "t": "”"}], "zh": "Emma 说：“我们无法保证收入能达到某个水平。但我们可以帮助你们的主播改善内容，并与观众建立更牢固的关系。”"}, {"segs": [{"n": 15, "t": "The owner agrees."}, {"n": 0, "t": " "}, {"n": 16, "t": "They decide to review the results together before discussing a longer partnership."}], "zh": "负责人同意了。他们决定先一起复盘结果，再讨论更长期的合作。"}], "sentences": [{"n": 1, "chunks": ["Emma", "works for", "a social live-streaming platform."], "text": "Emma works for a social live-streaming platform.", "structure": "主语：Emma；谓语：works；介词短语：for a social live-streaming platform，补充工作所属机构。", "grammar": "搭配：work for + 机构；一般现在时，第三人称单数用 works。"}, {"n": 2, "chunks": ["Her job", "is to find new agencies", "and help them grow."], "text": "Her job is to find new agencies and help them grow.", "structure": "主语：Her job；系动词：is；表语：to find new agencies and help them grow，为两个并列的不定式短语，第二个省略 to。内部 find 的宾语是 new agencies；help 的宾语是 them，grow 作宾语补足语。", "grammar": "搭配：help + 宾语 + (to) do；them 指 agencies。"}, {"n": 3, "chunks": ["Today,", "she has an online meeting", "with an agency owner in Malaysia."], "text": "Today, she has an online meeting with an agency owner in Malaysia.", "structure": "主语：she；谓语：has；宾语：an online meeting；时间状语：Today；with an agency owner in Malaysia 补充会议参与者。in Malaysia 修饰 an agency owner。", "grammar": "搭配：have a meeting with + 人。"}, {"n": 4, "chunks": ["The agency has twenty hosts,", "but only twelve of them", "stream regularly."], "text": "The agency has twenty hosts, but only twelve of them stream regularly.", "structure": "第一分句：The agency（主语）+ has（谓语）+ twenty hosts（宾语）；第二分句：only twelve of them（主语）+ stream（谓语）+ regularly（频率状语）。but 连接两个分句。", "grammar": "结构：数量 + of + 代词；them 指 twenty hosts；第二分句是主谓结构。"}, {"n": 5, "chunks": ["Before introducing the platform,", "Emma asks a few questions."], "text": "Before introducing the platform, Emma asks a few questions.", "structure": "主句：Emma（主语）+ asks（谓语）+ a few questions（宾语）；Before introducing the platform 是时间状语，introducing 的逻辑主语是 Emma，宾语是 the platform。", "grammar": "结构：before + 动词-ing；a few 修饰可数名词复数。"}, {"n": 6, "chunks": ["How", "do you recruit", "new hosts?"], "text": "How do you recruit new hosts?", "structure": "主语：you；谓语实义部分：recruit；宾语：new hosts；How 是方式疑问状语；do 是疑问助动词。", "grammar": "句型：How + do/does + 主语 + 动词原形 + 宾语？"}, {"n": 7, "chunks": ["What support", "do you offer", "them?"], "text": "What support do you offer them?", "structure": "主语：you；谓语实义部分：offer；间接宾语：them；直接宾语：What support，因疑问而前置；do 是助动词。", "grammar": "句型：offer + 人 + 物；疑问句对应陈述语序 you offer them support。"}, {"n": 8, "chunks": ["And what", "is your biggest challenge", "right now?"], "text": "And what is your biggest challenge right now?", "structure": "主语：your biggest challenge；系动词：is；疑问表语：what；时间状语：right now；And 衔接前文。", "grammar": "主系表疑问句，对应陈述语序 your biggest challenge is…；biggest 是最高级，作定语。"}, {"n": 9, "chunks": ["The owner explains", "that many new hosts leave after their first week", "because they have very few viewers."], "text": "The owner explains that many new hosts leave after their first week because they have very few viewers.", "structure": "主句：The owner（主语）+ explains（谓语）+ that 从句（宾语）。宾语从句：many new hosts（主语）+ leave（谓语）+ after their first week（时间状语）。because 引导其中的原因状语从句：they + have + very few viewers。", "grammar": "层级：explain + that [主句内容 + because 原因]；have 的宾语是 very few viewers。"}, {"n": 10, "chunks": ["Emma", "suggests", "a small trial."], "text": "Emma suggests a small trial.", "structure": "主语：Emma；谓语：suggests；宾语：a small trial；句型为主谓宾。", "grammar": "搭配：suggest + 名词；谓语采用一般现在时。"}, {"n": 11, "chunks": ["The agency can start with five hosts", "and follow a regular streaming schedule", "for two weeks."], "text": "The agency can start with five hosts and follow a regular streaming schedule for two weeks.", "structure": "主语：The agency；并列谓语：can start 与 (can) follow；with five hosts 补充 start 的起点；follow 的宾语是 a regular streaming schedule；for two weeks 为时长状语。", "grammar": "搭配：start with + 名词；情态动词 can 后接原形，第二个 can 省略。"}, {"n": 12, "chunks": ["During the trial,", "her team will review their performance", "and offer practical advice."], "text": "During the trial, her team will review their performance and offer practical advice.", "structure": "主语：her team；并列谓语：will review 与 (will) offer；对应宾语：their performance、practical advice；During the trial 为时间状语。", "grammar": "结构：will + do A and do B；advice 为不可数名词。"}, {"n": 13, "chunks": ["“We cannot promise a certain level of income,”", "Emma says."], "text": "“We cannot promise a certain level of income,” Emma says.", "structure": "引语：We（主语）+ cannot promise（谓语）+ a certain level of income（宾语）；of income 修饰 level。引述部分：Emma（主语）+ says（谓语），引语提供所说的内容。", "grammar": "结构：情态动词 can + not + 动词原形；a certain level of + 名词。"}, {"n": 14, "chunks": ["But we can help your hosts", "improve their content", "and build stronger relationships with viewers."], "text": "But we can help your hosts improve their content and build stronger relationships with viewers.", "structure": "主句：we（主语）+ can help（谓语）+ your hosts（宾语）+ improve… and build…（并列的宾语补足语）。improve 的宾语是 their content；build 的宾语是 stronger relationships；with viewers 修饰 relationships。", "grammar": "句型：help + 宾语 + do A and do B；stronger 是形容词比较级，作定语。"}, {"n": 15, "chunks": ["The owner", "agrees."], "text": "The owner agrees.", "structure": "主语：The owner；谓语：agrees；主谓结构，无宾语。", "grammar": "agree 在本句中是不及物动词；一般现在时，第三人称单数。"}, {"n": 16, "chunks": ["They decide to review the results together", "before discussing a longer partnership."], "text": "They decide to review the results together before discussing a longer partnership.", "structure": "主语：They；谓语：decide；宾语：to review the results together；before discussing a longer partnership 为时间状语。review 的宾语是 the results；discussing 的宾语是 a longer partnership。", "grammar": "搭配：decide to do；before + 动词-ing；together 作状语。"}], "expressions": {"head": ["英文", "中文"], "rows": [["agency / host", "公会／主播"], ["stream regularly", "定期开播"], ["recruit new hosts", "招募新主播"], ["What is your biggest challenge right now?", "你们目前最大的困难是什么？"], ["start with a small trial", "从小规模试运营开始"], ["follow a regular streaming schedule", "按规律的时间安排开播"], ["review their performance", "评估他们的表现"], ["build stronger relationships with viewers", "与观众建立更牢固的关系"]]}, "vocab": {"head": ["词汇", "用法"], "rows": [["agency / host", "公会／主播"], ["recruit", "recruit new hosts"], ["trial", "a small trial"], ["review", "review their performance"]]}, "notes": [], "writing": null, "zhBlocks": [{"label": false, "text": "Emma 在一家社交直播平台工作。她的工作是寻找新公会，并帮助它们发展。"}, {"label": false, "text": "今天，她与马来西亚的一位公会负责人开线上会议。这家公会有二十位主播，但其中只有十二位定期开播。"}, {"label": false, "text": "在介绍平台之前，Emma 先问了几个问题。"}, {"label": false, "text": "“你们如何招募新主播？你们为主播提供什么支持？还有，你们目前最大的困难是什么？”"}, {"label": false, "text": "负责人解释说，很多新主播在第一周结束后就离开了，因为他们的观众很少。"}, {"label": false, "text": "Emma 建议进行一次小规模试运营。公会可以先安排五位主播，按照规律的开播计划试行两周。试运营期间，她的团队会评估主播的表现，并提供实用建议。"}, {"label": false, "text": "Emma 说：“我们无法保证收入能达到某个水平。但我们可以帮助你们的主播改善内容，并与观众建立更牢固的关系。”"}, {"label": false, "text": "负责人同意了。他们决定先一起复盘结果，再讨论更长期的合作。"}], "topic_en": "An agency owner says big platforms always overpromise. How do you set expectations without sounding negative?", "topic_zh": "公会负责人说“大平台总是空口承诺”。你怎样管理预期，又不显得消极？", "roles": ["持怀疑态度的公会负责人", "平台运营", "刚入行的新主播"], "prompt": "你扮演马来西亚一家有 20 位主播的公会负责人，我是平台运营。你刚听完两周小规模试运营的提议，担心又白忙一场。请用英文一次只问一个问题，并根据我的回答追问。"}, {"id": 2, "title": "试运营后的效果复盘", "objectives": ["回应公会对收益不达预期的担忧。", "区分开播时长、流量、观众停留与收入之间的关系。", "协商培训、推广和下一阶段的目标。"], "bodyTitle": "Beyond the First Two Weeks", "paragraphs": [{"segs": [{"n": 1, "t": "Two weeks after the trial began, Emma met with the agency owner, Daniel, to review the results."}, {"n": 0, "t": " "}, {"n": 2, "t": "Four of the five hosts had followed their schedules, and average viewing time had increased."}, {"n": 0, "t": " "}, {"n": 3, "t": "However, gift revenue remained below Daniel’s expectations."}], "zh": "试运营开始两周后，Emma 与公会负责人 Daniel 会面，复盘结果。五位主播中有四位遵守了开播安排，平均观看时长也有所增加。然而，礼物收益仍低于 Daniel 的预期。"}, {"segs": [{"n": 4, "t": "“The hosts are putting in more hours, but they’re not earning much yet,” he said."}, {"n": 0, "t": " “"}, {"n": 5, "t": "Unless they see progress soon, some of them may lose motivation."}, {"n": 0, "t": "”"}], "zh": "他说：“主播投入了更多时间，但目前赚得仍然不多。如果他们不能很快看到进展，其中一些人可能会失去动力。”"}, {"segs": [{"n": 6, "t": "Emma understood his concern, but she pointed out that streaming longer did not necessarily lead to higher earnings."}, {"n": 0, "t": " "}, {"n": 7, "t": "One host, for example, attracted plenty of new viewers but struggled to keep conversations going."}, {"n": 0, "t": " "}, {"n": 8, "t": "Another had a smaller audience, yet viewers returned regularly and stayed longer."}], "zh": "Emma 理解他的担忧，但她指出，延长开播时间不一定能提高收入。例如，一位主播吸引了很多新观众，却难以让对话持续下去。另一位主播的观众规模较小，但观众经常回来，而且停留得更久。"}, {"segs": [{"n": 9, "t": "“Before we ask for more traffic, we need to understand what happens after viewers enter the room,” she explained."}, {"n": 0, "t": " “"}, {"n": 10, "t": "Otherwise, extra exposure may bring only a temporary increase in numbers."}, {"n": 0, "t": "”"}], "zh": "她解释道：“在争取更多流量之前，我们需要弄清楚观众进房后发生了什么。否则，额外曝光可能只会带来短期的数据增长。”"}, {"segs": [{"n": 11, "t": "Daniel agreed that training would help, but he also wanted clearer support from the platform."}, {"n": 0, "t": " "}, {"n": 12, "t": "He asked whether hosts who showed consistent improvement could receive additional promotion."}], "zh": "Daniel 认同培训会有帮助，但他也希望平台提供更明确的支持。他询问，持续进步的主播能否获得额外推广。"}, {"segs": [{"n": 13, "t": "Emma offered to submit their performance data for review, while making it clear that promotion was not guaranteed."}, {"n": 0, "t": " "}, {"n": 14, "t": "They agreed to continue for another month, with weekly feedback and specific goals for each host."}], "zh": "Emma 表示愿意提交他们的表现数据供审核，同时明确说明推广并无保证。他们同意再继续一个月，每周提供反馈，并为每位主播设定具体目标。"}, {"segs": [{"n": 15, "t": "For Daniel, the decision came down to whether the partnership could give his hosts a realistic path to growth."}], "zh": "对 Daniel 而言，这个决定归根结底取决于合作能否为他的主播提供一条切实可行的成长路径。"}], "sentences": [{"n": 1, "chunks": ["Two weeks after the trial began,", "Emma met with the agency owner, Daniel,", "to review the results."], "text": "Two weeks after the trial began, Emma met with the agency owner, Daniel, to review the results.", "structure": "主句：Emma（主语）+ met（谓语）+ with the agency owner（介词短语）；Daniel 是 the agency owner 的同位语；to review the results 是目的状语。开头是时间状语，after 从句内部为 the trial（主语）+ began（谓语），Two weeks 修饰时间间隔。", "grammar": "搭配：meet with + 人；不定式 to do 作目的状语；主句为一般过去时。"}, {"n": 2, "chunks": ["Four of the five hosts had followed their schedules,", "and average viewing time had increased."], "text": "Four of the five hosts had followed their schedules, and average viewing time had increased.", "structure": "第一分句：Four of the five hosts（主语）+ had followed（谓语）+ their schedules（宾语）；第二分句：average viewing time（主语）+ had increased（谓语）。and 连接分句。", "grammar": "时态：两处都是过去完成时 had + 过去分词；increase 在本句中不及物。"}, {"n": 3, "chunks": ["However,", "gift revenue", "remained below Daniel’s expectations."], "text": "However, gift revenue remained below Daniel’s expectations.", "structure": "主语：gift revenue；系动词：remained；表语：below Daniel’s expectations，为介词短语；However 是连接副词。", "grammar": "句型：主语 + remain + 表语；below + 名词短语。"}, {"n": 4, "chunks": ["“The hosts are putting in more hours,", "but they’re not earning much yet,”", "he said."], "text": "“The hosts are putting in more hours, but they’re not earning much yet,” he said.", "structure": "引语第一分句：The hosts（主语）+ are putting in（谓语）+ more hours（宾语）；第二分句：they（主语）+ are not earning（谓语）+ much（宾语）+ yet（状语）。he said 是引述部分。", "grammar": "时态：现在进行时 am/is/are + 动词-ing；搭配：put in + 时间；not… yet。"}, {"n": 5, "chunks": ["Unless they see progress soon,", "some of them may lose motivation."], "text": "Unless they see progress soon, some of them may lose motivation.", "structure": "主句：some of them（主语）+ may lose（谓语）+ motivation（宾语）。Unless 引导条件状语从句：they（主语）+ see（谓语）+ progress（宾语）+ soon（时间状语）。", "grammar": "结构：Unless + 从句，主句；情态动词 may 后接原形 lose。"}, {"n": 6, "chunks": ["Emma understood his concern,", "but she pointed out", "that streaming longer did not necessarily lead to higher earnings."], "text": "Emma understood his concern, but she pointed out that streaming longer did not necessarily lead to higher earnings.", "structure": "第一分句：Emma + understood + his concern；第二分句：she + pointed out + that 宾语从句；but 连接两部分。从句主语：streaming longer（动名词短语）；谓语：did not lead；necessarily 为状语；to higher earnings 为介词补足成分。", "grammar": "搭配：point out that…；lead to + 名词；not necessarily；did 后接动词原形。"}, {"n": 7, "chunks": ["One host, for example,", "attracted plenty of new viewers", "but struggled to keep conversations going."], "text": "One host, for example, attracted plenty of new viewers but struggled to keep conversations going.", "structure": "主语：One host；并列谓语：attracted、struggled；attracted 的宾语是 plenty of new viewers；to keep conversations going 补充 struggled。for example 为插入语。keep 后 conversations 是宾语，going 是宾语补足语。", "grammar": "搭配：plenty of + 名词；struggle to do；keep + 宾语 + 动词-ing。"}, {"n": 8, "chunks": ["Another had a smaller audience,", "yet viewers returned regularly", "and stayed longer."], "text": "Another had a smaller audience, yet viewers returned regularly and stayed longer.", "structure": "第一分句：Another（主语）+ had（谓语）+ a smaller audience（宾语）；第二分句：viewers（主语）+ returned / stayed（并列谓语），regularly 与 longer 分别作状语；yet 连接两个分句。", "grammar": "指代：Another 指另一位主播；smaller 为形容词比较级，longer 为副词比较级。"}, {"n": 9, "chunks": ["“Before we ask for more traffic,", "we need to understand", "what happens after viewers enter the room,”", "she explained."], "text": "“Before we ask for more traffic, we need to understand what happens after viewers enter the room,” she explained.", "structure": "引语主句：we（主语）+ need（谓语）+ to understand…（不定式补足成分）。Before we ask for more traffic 为时间状语从句；understand 的宾语为 what happens… 从句，其中 what 作主语，happens 作谓语；after viewers enter the room 是嵌套的时间状语从句。she explained 是引述部分。", "grammar": "搭配：ask for + 名词；need to do；宾语从句中保持陈述语序。"}, {"n": 10, "chunks": ["Otherwise,", "extra exposure may bring", "only a temporary increase in numbers."], "text": "Otherwise, extra exposure may bring only a temporary increase in numbers.", "structure": "主语：extra exposure；谓语：may bring；宾语：only a temporary increase in numbers；in numbers 修饰 increase。Otherwise 为连接副词。", "grammar": "结构：情态动词 may + 动词原形；only 限定宾语名词短语。"}, {"n": 11, "chunks": ["Daniel agreed that training would help,", "but he also wanted clearer support from the platform."], "text": "Daniel agreed that training would help, but he also wanted clearer support from the platform.", "structure": "第一分句：Daniel（主语）+ agreed（谓语）+ that training would help（宾语从句）；从句主语为 training，谓语为 would help。第二分句：he + wanted + clearer support from the platform；but 连接分句。", "grammar": "结构：agree that + 从句；training 在此为名词；clearer 作 support 的定语。"}, {"n": 12, "chunks": ["He asked whether hosts who showed consistent improvement", "could receive additional promotion."], "text": "He asked whether hosts who showed consistent improvement could receive additional promotion.", "structure": "主句：He（主语）+ asked（谓语）+ whether 从句（宾语）。宾语从句：hosts（主语中心词）+ could receive（谓语）+ additional promotion（宾语）。who showed consistent improvement 是修饰 hosts 的定语从句：who 作主语，showed 作谓语，consistent improvement 作宾语。", "grammar": "层级：ask whether [hosts + who 定语从句 + could receive…]；间接疑问不倒装。"}, {"n": 13, "chunks": ["Emma offered to submit their performance data for review,", "while making it clear", "that promotion was not guaranteed."], "text": "Emma offered to submit their performance data for review, while making it clear that promotion was not guaranteed.", "structure": "主句：Emma（主语）+ offered（谓语）+ to submit…（不定式补足成分）；submit 的宾语是 their performance data，for review 表目的。while making… 为省略结构，逻辑主语为 Emma；making 后 it 为形式宾语，clear 为宾语补足语，that 从句为真正宾语。从句：promotion + was not guaranteed。", "grammar": "搭配：offer to do；make it + 形容词 + that 从句；被动语态：was + 过去分词。"}, {"n": 14, "chunks": ["They agreed to continue for another month,", "with weekly feedback and specific goals for each host."], "text": "They agreed to continue for another month, with weekly feedback and specific goals for each host.", "structure": "主语：They；谓语：agreed；to continue 为不定式补足成分；for another month 为时长状语；with weekly feedback and specific goals for each host 补充配套安排，for each host 修饰 goals。", "grammar": "搭配：agree to do；with + 并列名词短语。"}, {"n": 15, "chunks": ["For Daniel,", "the decision came down to", "whether the partnership could give his hosts a realistic path to growth."], "text": "For Daniel, the decision came down to whether the partnership could give his hosts a realistic path to growth.", "structure": "主语：the decision；谓语：came down；to 后接 whether 宾语从句；For Daniel 是视角状语。从句：the partnership（主语）+ could give（谓语）+ his hosts（间接宾语）+ a realistic path to growth（直接宾语）。", "grammar": "搭配：come down to + 名词/从句；give + 人 + 物；to growth 修饰 path，to 为介词。"}], "expressions": {"head": ["英文", "中文"], "rows": [["remain below expectations", "仍低于预期"], ["lose motivation", "失去动力"], ["not necessarily lead to…", "不一定会带来……"], ["struggle to keep conversations going", "难以让对话持续下去"], ["extra exposure", "额外曝光"], ["consistent improvement", "持续的进步"], ["submit performance data for review", "提交表现数据供审核"], ["come down to whether…", "归根结底取决于是否……"]]}, "vocab": {"head": ["词汇", "音标（美式）", "本文含义", "常见搭配"], "rows": [["consistent", "/kənˈsɪstənt/", "持续稳定的；前后一致的", "consistent improvement（持续进步）；be consistent with（与……一致）"]]}, "notes": [], "writing": null, "zhBlocks": [{"label": false, "text": "试运营开始两周后，Emma 与公会负责人 Daniel 会面，复盘结果。五位主播中有四位遵守了开播安排，平均观看时长也有所增加。然而，礼物收益仍低于 Daniel 的预期。"}, {"label": false, "text": "他说：“主播投入了更多时间，但目前赚得仍然不多。如果他们不能很快看到进展，其中一些人可能会失去动力。”"}, {"label": false, "text": "Emma 理解他的担忧，但她指出，延长开播时间不一定能提高收入。例如，一位主播吸引了很多新观众，却难以让对话持续下去。另一位主播的观众规模较小，但观众经常回来，而且停留得更久。"}, {"label": false, "text": "她解释道：“在争取更多流量之前，我们需要弄清楚观众进房后发生了什么。否则，额外曝光可能只会带来短期的数据增长。”"}, {"label": false, "text": "Daniel 认同培训会有帮助，但他也希望平台提供更明确的支持。他询问，持续进步的主播能否获得额外推广。"}, {"label": false, "text": "Emma 表示愿意提交他们的表现数据供审核，同时明确说明推广并无保证。他们同意再继续一个月，每周提供反馈，并为每位主播设定具体目标。"}, {"label": false, "text": "对 Daniel 而言，这个决定归根结底取决于合作能否为他的主播提供一条切实可行的成长路径。"}], "topic_en": "How would you explain the difference between more traffic and more revenue to an impatient agency owner?", "topic_zh": "面对着急的公会负责人，你如何解释“流量更多”和“收入更多”的区别？", "roles": ["公会负责人 Daniel", "平台运营", "需要动力的主播"], "prompt": "你扮演公会负责人 Daniel。试运营两周后礼物收益低于预期，你有点着急，觉得主播已经加时了。我是平台运营，请用英文质疑我的解释，并要求明确的推广支持。"}, {"id": 3, "title": "公会扩大招募与主播留存", "objectives": ["讨论只重招募、缺少跟进导致的主播流失。", "调整招募与主播支持的工作重点。", "用留存情况衡量招募效果。"], "bodyTitle": "Growing Too Fast?", "paragraphs": [{"segs": [{"n": 1, "t": "A month into the partnership, Daniel was ready to recruit more hosts."}, {"n": 0, "t": " "}, {"n": 2, "t": "He believed that a larger team would help the agency increase its revenue and gain more support from the platform."}], "zh": "合作开始一个月后，Daniel 准备招募更多主播。他认为，更大的团队能帮助公会提高收入，并获得更多平台支持。"}, {"segs": [{"n": 3, "t": "Emma, however, was concerned about how quickly the agency was expanding."}, {"n": 0, "t": " "}, {"n": 4, "t": "Although new hosts were joining every week, nearly half stopped streaming within their first month."}], "zh": "然而，Emma 担心公会扩张得太快。虽然每周都有新主播加入，但将近一半的人在加入后的第一个月内就停止开播了。"}, {"segs": [{"n": 5, "t": "“If we keep recruiting without understanding why people leave, we may end up repeating the same problem on a larger scale,” she said."}], "zh": "她说：“如果我们不弄清人们为什么离开就继续招募，最终可能只会在更大规模上重复同样的问题。”"}, {"segs": [{"n": 6, "t": "Daniel explained that his team spent most of its time finding new hosts, leaving little time to support existing ones."}, {"n": 0, "t": " "}, {"n": 7, "t": "Newcomers usually received a short introduction, but there was no consistent follow-up after their first broadcast."}], "zh": "Daniel 解释说，团队把大部分时间花在寻找新主播上，结果几乎没有时间支持现有主播。新人通常只接受简短介绍，首次开播后却没有持续跟进。"}, {"segs": [{"n": 8, "t": "Rather than stopping recruitment completely, Emma suggested adjusting the team’s priorities."}, {"n": 0, "t": " "}, {"n": 9, "t": "One manager would focus on recruitment, while another would check in with new hosts, review their early broadcasts, and help them set realistic goals."}], "zh": "Emma 建议调整团队的工作重点，而不是完全停止招募。一位经理负责招募，另一位则主动联系新主播了解情况，复盘他们前期的直播，并帮助他们设定合理目标。"}, {"segs": [{"n": 10, "t": "They also agreed to track how many new hosts were still streaming after thirty days, instead of judging success only by the number who signed up."}], "zh": "他们还同意跟踪三十天后仍在开播的新主播人数，而不是只按报名人数判断成效。"}, {"segs": [{"n": 11, "t": "Daniel began to see the issue differently."}, {"n": 0, "t": " "}, {"n": 12, "t": "Recruiting hosts could make the agency bigger, but helping them stay and improve was what would make the business stronger."}], "zh": "Daniel 开始从不同角度看待这个问题。招募主播能让公会规模更大，但帮助他们留下并进步，才是让业务更强健的关键。"}], "sentences": [{"n": 1, "chunks": ["A month into the partnership,", "Daniel was ready to recruit more hosts."], "text": "A month into the partnership, Daniel was ready to recruit more hosts.", "structure": "主语：Daniel；系动词：was；表语：ready；to recruit more hosts 补充 ready 的内容。A month into the partnership 为时间状语；recruit 的宾语是 more hosts。", "grammar": "搭配：be ready to do；时间长度 + into + 名词。"}, {"n": 2, "chunks": ["He believed", "that a larger team would help the agency increase its revenue", "and gain more support from the platform."], "text": "He believed that a larger team would help the agency increase its revenue and gain more support from the platform.", "structure": "主句：He（主语）+ believed（谓语）+ that 从句（宾语）。从句：a larger team（主语）+ would help（谓语）+ the agency（宾语）+ increase… and gain…（并列宾语补足语）；两者的宾语分别是 its revenue、more support。", "grammar": "句型：help + 宾语 + do A and do B；from the platform 修饰 support。"}, {"n": 3, "chunks": ["Emma, however,", "was concerned about", "how quickly the agency was expanding."], "text": "Emma, however, was concerned about how quickly the agency was expanding.", "structure": "主语：Emma；系动词：was；表语：concerned；about 后接 how 引导的宾语从句。从句：the agency（主语）+ was expanding（谓语），how quickly 作程度/方式状语；however 为插入的连接副词。", "grammar": "搭配：be concerned about + 名词/从句；从句是过去进行时。"}, {"n": 4, "chunks": ["Although new hosts were joining every week,", "nearly half stopped streaming within their first month."], "text": "Although new hosts were joining every week, nearly half stopped streaming within their first month.", "structure": "主句：nearly half（主语，省略 of the new hosts）+ stopped（谓语）+ streaming（动名词宾语）；within their first month 为时间状语。Although 引导让步状语从句：new hosts + were joining + every week。", "grammar": "搭配：stop doing；although 从句与主句不再用 but 连接。"}, {"n": 5, "chunks": ["“If we keep recruiting without understanding why people leave,", "we may end up repeating the same problem on a larger scale,”", "she said."], "text": "“If we keep recruiting without understanding why people leave, we may end up repeating the same problem on a larger scale,” she said.", "structure": "引语主句：we（主语）+ may end up（谓语）+ repeating…（动词-ing 补足成分）；repeating 的宾语是 the same problem。If 条件从句：we + keep + recruiting；without understanding… 补充方式，understanding 的宾语为 why people leave，其中 people 作主语、leave 作谓语。she said 是引述部分。", "grammar": "搭配：keep doing；without doing；end up doing；on a larger scale 作状语。"}, {"n": 6, "chunks": ["Daniel explained that his team spent most of its time finding new hosts,", "leaving little time to support existing ones."], "text": "Daniel explained that his team spent most of its time finding new hosts, leaving little time to support existing ones.", "structure": "主句：Daniel + explained + that 宾语从句。从句：his team（主语）+ spent（谓语）+ most of its time（宾语）+ finding new hosts；finding 的宾语是 new hosts。leaving little time… 为结果状语；little time 是 leaving 的宾语，to support existing ones 修饰 time。", "grammar": "搭配：spend + 时间 + doing；ones 替代 hosts；leaving 的逻辑来源是前述整个情况。"}, {"n": 7, "chunks": ["Newcomers usually received a short introduction,", "but there was no consistent follow-up after their first broadcast."], "text": "Newcomers usually received a short introduction, but there was no consistent follow-up after their first broadcast.", "structure": "第一分句：Newcomers（主语）+ received（谓语）+ a short introduction（宾语），usually 为频率状语。第二分句为 there be 存在句：there + was + no consistent follow-up；after their first broadcast 为时间状语。", "grammar": "结构：there was + 名词短语；but 连接分句；follow-up 是名词。"}, {"n": 8, "chunks": ["Rather than stopping recruitment completely,", "Emma suggested adjusting the team’s priorities."], "text": "Rather than stopping recruitment completely, Emma suggested adjusting the team’s priorities.", "structure": "主句：Emma（主语）+ suggested（谓语）+ adjusting the team’s priorities（动名词宾语）；adjusting 的宾语是 the team’s priorities。Rather than stopping recruitment completely 为对比状语；stopping 的宾语是 recruitment，completely 为状语。", "grammar": "搭配：suggest doing；rather than + 动词-ing。"}, {"n": 9, "chunks": ["One manager would focus on recruitment,", "while another would check in with new hosts,", "review their early broadcasts,", "and help them set realistic goals."], "text": "One manager would focus on recruitment, while another would check in with new hosts, review their early broadcasts, and help them set realistic goals.", "structure": "第一分句：One manager + would focus + on recruitment。while 引导对比分句：another 为主语；would check in、(would) review、(would) help 为并列谓语。review 的宾语是 their early broadcasts；help 的宾语是 them，set realistic goals 为宾语补足语。", "grammar": "搭配：focus on；check in with + 人；help + 宾语 + do；三个谓语共用 would。"}, {"n": 10, "chunks": ["They also agreed to track how many new hosts were still streaming after thirty days,", "instead of judging success only by the number who signed up."], "text": "They also agreed to track how many new hosts were still streaming after thirty days, instead of judging success only by the number who signed up.", "structure": "主句：They + agreed + to track…；track 的宾语是 how many new hosts were still streaming after thirty days，从句主语为 how many new hosts，谓语为 were streaming。instead of judging… 为对比状语；judging 的宾语是 success，by… 为依据状语；who signed up 修饰 the number 所指的人群。", "grammar": "搭配：agree to do；instead of doing；judge + 宾语 + by + 依据；who 从句中 who 作主语。"}, {"n": 11, "chunks": ["Daniel", "began to see the issue", "differently."], "text": "Daniel began to see the issue differently.", "structure": "主语：Daniel；谓语：began；不定式补足成分：to see the issue differently；see 的宾语是 the issue；differently 作方式状语。", "grammar": "搭配：begin to do；副词修饰动词 see。"}, {"n": 12, "chunks": ["Recruiting hosts could make the agency bigger,", "but helping them stay and improve", "was what would make the business stronger."], "text": "Recruiting hosts could make the agency bigger, but helping them stay and improve was what would make the business stronger.", "structure": "第一分句：Recruiting hosts（动名词短语作主语）+ could make（谓语）+ the agency（宾语）+ bigger（宾语补足语）。第二分句：helping them stay and improve（动名词短语作主语）+ was（系动词）+ what 从句（表语）。what 从句中 what 作主语，would make 作谓语，the business 作宾语，stronger 作宾语补足语。", "grammar": "句型：make + 宾语 + 形容词；help + 宾语 + do A and do B；单个动名词短语作主语按单数处理。"}], "expressions": {"head": ["英文", "中文"], "rows": [["a month into the partnership", "合作开始一个月后"], ["end up doing something", "最终会做某事；结果却……"], ["on a larger scale", "以更大的规模"], ["spend time doing something", "花时间做某事"], ["consistent follow-up", "持续、稳定的跟进"], ["adjust the team’s priorities", "调整团队的工作重点"], ["check in with someone", "主动联系某人，了解近况"], ["set realistic goals", "设定切合实际的目标"]]}, "vocab": {"head": ["词汇", "音标（美式）", "本文含义", "常见搭配"], "rows": [["consistent", "/kənˈsɪstənt/", "持续稳定的；前后一致的", "consistent improvement（持续进步）；be consistent with（与……一致）"]]}, "notes": [], "writing": null, "zhBlocks": [{"label": false, "text": "合作开始一个月后，Daniel 准备招募更多主播。他认为，更大的团队能帮助公会提高收入，并获得更多平台支持。"}, {"label": false, "text": "然而，Emma 担心公会扩张得太快。虽然每周都有新主播加入，但将近一半的人在加入后的第一个月内就停止开播了。"}, {"label": false, "text": "她说：“如果我们不弄清人们为什么离开就继续招募，最终可能只会在更大规模上重复同样的问题。”"}, {"label": false, "text": "Daniel 解释说，团队把大部分时间花在寻找新主播上，结果几乎没有时间支持现有主播。新人通常只接受简短介绍，首次开播后却没有持续跟进。"}, {"label": false, "text": "Emma 建议调整团队的工作重点，而不是完全停止招募。一位经理负责招募，另一位则主动联系新主播了解情况，复盘他们前期的直播，并帮助他们设定合理目标。"}, {"label": false, "text": "他们还同意跟踪三十天后仍在开播的新主播人数，而不是只按报名人数判断成效。"}, {"label": false, "text": "Daniel 开始从不同角度看待这个问题。招募主播能让公会规模更大，但帮助他们留下并进步，才是让业务更强健的关键。"}], "topic_en": "What would you change first in this agency's weekly routine, and what would you measure?", "topic_zh": "你会先改动这家公会每周工作流程的哪一环？用什么指标衡量？", "roles": ["急着扩招的公会负责人", "新上任的运营经理", "正在流失的新主播"], "prompt": "你扮演一家马来西亚公会负责人，正急着扩招。我是平台运营。请用英文为你的扩招计划辩护；被追问时，逐步透露团队在跟进新主播上的缺口。"}, {"id": 5, "title": "主播要求提高分成", "objectives": ["回应主播提出的涨分成要求。", "核实其他公会报价的有效期与附加条件。", "结合主播表现提出方案，并形成书面内容。"], "bodyTitle": "A Conversation About Commission", "paragraphs": [{"segs": [{"n": 1, "t": "After three months with the agency, Mia asked Daniel for a higher share of her gift revenue."}, {"n": 0, "t": " "}, {"n": 2, "t": "She felt that her consistent streaming schedule and growing audience had earned her a better deal."}], "zh": "加入公会三个月后，Mia 向 Daniel 要求提高礼物收益分成。她觉得，自己规律开播、观众不断增长，已经使她有理由获得更好的合作条件。"}, {"segs": [{"n": 3, "t": "“Another agency has offered me a higher percentage,” she said."}, {"n": 0, "t": " “"}, {"n": 4, "t": "I enjoy working with your team, but I also need to think about my income."}, {"n": 0, "t": "”"}], "zh": "她说：“另一家公会给我开出了更高的分成比例。我很喜欢与你们团队合作，但我也需要考虑自己的收入。”"}, {"segs": [{"n": 5, "t": "Instead of making an immediate offer, Daniel asked what the other agency’s proposal included."}, {"n": 0, "t": " "}, {"n": 6, "t": "Was the higher rate permanent, or was it only available during the first month?"}, {"n": 0, "t": " "}, {"n": 7, "t": "Did it come with minimum streaming hours or revenue targets?"}], "zh": "Daniel 没有立即报价，而是询问另一家公会的方案包含什么。更高的比例是长期有效的，还是仅在第一个月适用？它是否附带最低开播时长或收益目标？"}, {"segs": [{"n": 8, "t": "Mia admitted that she had not checked all the details."}], "zh": "Mia 承认，她还没有核实所有细节。"}, {"segs": [{"n": 9, "t": "“I appreciate your commitment, and I want to find a way for us to keep working together,” Daniel said."}, {"n": 0, "t": " “"}, {"n": 10, "t": "But before you decide, it’s important to compare the full terms."}, {"n": 0, "t": "”"}], "zh": "Daniel 说：“我很感谢你的投入，也希望找到一个能让我们继续合作的办法。但在你决定之前，比较完整的合作条款很重要。”"}, {"segs": [{"n": 11, "t": "He then reviewed her recent performance with her."}, {"n": 0, "t": " "}, {"n": 12, "t": "Her revenue was improving, although it still varied considerably from week to week."}, {"n": 0, "t": " "}, {"n": 13, "t": "Daniel proposed a higher share once she reached an agreed monthly target, along with weekly coaching to help her get there."}], "zh": "随后，他与她一起复盘了她近期的表现。她的收益正在提高，不过每周之间仍有较大波动。Daniel 提议，她达到双方约定的月度目标后可以提高分成，并提供每周辅导帮助她达标。"}, {"segs": [{"n": 14, "t": "Mia did not accept immediately."}, {"n": 0, "t": " "}, {"n": 15, "t": "She asked him to put the proposal in writing so that she could compare both offers carefully."}], "zh": "Mia 没有立刻接受。她请他把方案写下来，以便仔细比较两份报价。"}], "sentences": [{"n": 1, "chunks": ["After three months with the agency,", "Mia asked Daniel for a higher share of her gift revenue."], "text": "After three months with the agency, Mia asked Daniel for a higher share of her gift revenue.", "structure": "主语：Mia；谓语：asked；宾语：Daniel；for a higher share of her gift revenue 为所求内容；After three months with the agency 为时间状语；of her gift revenue 修饰 share。", "grammar": "搭配：ask + 人 + for + 事物；higher 为比较级定语。"}, {"n": 2, "chunks": ["She felt", "that her consistent streaming schedule and growing audience", "had earned her a better deal."], "text": "She felt that her consistent streaming schedule and growing audience had earned her a better deal.", "structure": "主句：She（主语）+ felt（谓语）+ that 从句（宾语）。从句主语：her consistent streaming schedule and growing audience；谓语：had earned；间接宾语：her；直接宾语：a better deal。", "grammar": "句型：earn + 人 + 物；时态：过去完成时 had + 过去分词；consistent、growing 分别作定语。"}, {"n": 3, "chunks": ["“Another agency has offered me a higher percentage,”", "she said."], "text": "“Another agency has offered me a higher percentage,” she said.", "structure": "引语：Another agency（主语）+ has offered（谓语）+ me（间接宾语）+ a higher percentage（直接宾语）。she said 为引述部分，she 是主语，said 是谓语。", "grammar": "句型：offer + 人 + 物；现在完成时 has + 过去分词。"}, {"n": 4, "chunks": ["I enjoy working with your team,", "but I also need to think about my income."], "text": "I enjoy working with your team, but I also need to think about my income.", "structure": "第一分句：I + enjoy + working with your team（动名词宾语）；第二分句：I + need + to think about my income（不定式补足成分）；but 连接分句。", "grammar": "搭配：enjoy doing；work with + 人；need to do；think about + 名词。"}, {"n": 5, "chunks": ["Instead of making an immediate offer,", "Daniel asked", "what the other agency’s proposal included."], "text": "Instead of making an immediate offer, Daniel asked what the other agency’s proposal included.", "structure": "主句：Daniel（主语）+ asked（谓语）+ what 从句（宾语）。从句：the other agency’s proposal（主语）+ included（谓语）+ what（前置的宾语）。Instead of making an immediate offer 是对比状语，making 的宾语是 an immediate offer。", "grammar": "结构：instead of doing；宾语从句保持主语 + 谓语的顺序，what 作 included 的宾语。"}, {"n": 6, "chunks": ["Was the higher rate permanent,", "or was it only available during the first month?"], "text": "Was the higher rate permanent, or was it only available during the first month?", "structure": "第一问：the higher rate（主语）+ was（系动词）+ permanent（表语）；第二问：it（主语）+ was（系动词）+ available（表语），only 为限定状语，during the first month 为时间状语。两问由 or 连接，系动词均提前。", "grammar": "句型：Be + 主语 + 表语，or + be + 主语 + 表语？it 指 the higher rate。"}, {"n": 7, "chunks": ["Did it come with", "minimum streaming hours or revenue targets?"], "text": "Did it come with minimum streaming hours or revenue targets?", "structure": "主语：it；谓语实义部分：come；with 后接并列名词短语 minimum streaming hours、revenue targets；Did 是疑问助动词。", "grammar": "搭配：come with + 名词；一般过去时疑问句：Did + 主语 + 动词原形…？"}, {"n": 8, "chunks": ["Mia admitted", "that she had not checked all the details."], "text": "Mia admitted that she had not checked all the details.", "structure": "主句：Mia（主语）+ admitted（谓语）+ that 从句（宾语）。从句：she（主语）+ had not checked（谓语）+ all the details（宾语）。", "grammar": "结构：admit that + 从句；过去完成时否定：had not + 过去分词。"}, {"n": 9, "chunks": ["“I appreciate your commitment,", "and I want to find a way", "for us to keep working together,”", "Daniel said."], "text": "“I appreciate your commitment, and I want to find a way for us to keep working together,” Daniel said.", "structure": "引语第一分句：I + appreciate + your commitment；第二分句：I + want + to find a way…；find 的宾语是 a way，for us to keep working together 为修饰 way 的不定式结构，us 是不定式的逻辑主语；working 为 keep 的动名词补足成分。Daniel said 是引述部分。", "grammar": "搭配：want to do；a way for + 人 + to do；keep doing。"}, {"n": 10, "chunks": ["But before you decide,", "it’s important to compare the full terms."], "text": "But before you decide, it’s important to compare the full terms.", "structure": "主句：it（形式主语）+ is（系动词）+ important（表语）；to compare the full terms 为真正主语，内部 compare 为动词，the full terms 为宾语。before you decide 是时间状语从句，其中 you 作主语、decide 作谓语。", "grammar": "句型：It is + 形容词 + to do；before + 完整从句。"}, {"n": 11, "chunks": ["He then reviewed her recent performance", "with her."], "text": "He then reviewed her recent performance with her.", "structure": "主语：He；谓语：reviewed；宾语：her recent performance；then 为时间/顺序状语；with her 为伴随状语。", "grammar": "搭配：review + 事物 + with + 人；her 在 performance 前为物主限定词，在 with 后为宾格代词。"}, {"n": 12, "chunks": ["Her revenue was improving,", "although it still varied considerably from week to week."], "text": "Her revenue was improving, although it still varied considerably from week to week.", "structure": "主句：Her revenue（主语）+ was improving（谓语）。although 引导让步状语从句：it（主语）+ varied（谓语）+ considerably（程度状语）+ from week to week（时间变化状语）。", "grammar": "时态：主句为过去进行时，从句为一般过去时；vary + 程度副词；from… to…。"}, {"n": 13, "chunks": ["Daniel proposed a higher share", "once she reached an agreed monthly target,", "along with weekly coaching to help her get there."], "text": "Daniel proposed a higher share once she reached an agreed monthly target, along with weekly coaching to help her get there.", "structure": "主句：Daniel（主语）+ proposed（谓语）+ a higher share（宾语）。once 引导时间状语从句：she + reached + an agreed monthly target。along with weekly coaching 补充方案内容；to help her get there 修饰 coaching，其中 her 为 help 的宾语，get there 为宾语补足语。", "grammar": "搭配：propose + 名词；reach a target；help + 宾语 + do；agreed 为过去分词作定语。"}, {"n": 14, "chunks": ["Mia", "did not accept", "immediately."], "text": "Mia did not accept immediately.", "structure": "主语：Mia；谓语：did not accept；immediately 为时间状语；accept 在此省略上下文明确的宾语。", "grammar": "一般过去时否定句：主语 + did not + 动词原形。"}, {"n": 15, "chunks": ["She asked him to put the proposal in writing", "so that she could compare both offers carefully."], "text": "She asked him to put the proposal in writing so that she could compare both offers carefully.", "structure": "主句：She（主语）+ asked（谓语）+ him（宾语）+ to put the proposal in writing（宾语补足语）。so that 引导目的状语从句：she + could compare + both offers + carefully。", "grammar": "搭配：ask + 人 + to do；put + 事物 + in writing；so that + 主语 + can/could + 动词原形。"}], "expressions": {"head": ["英文", "中文"], "rows": [["a higher share of her gift revenue", "更高的礼物收益分成"], ["earn someone a better deal", "使某人凭借表现获得更好的条件"], ["proposal", "提议、方案"], ["permanent", "永久的；此处指长期有效的"], ["come with minimum streaming hours", "附带最低开播时长要求"], ["compare the full terms", "比较完整的合作条款"], ["vary considerably from week to week", "每周之间有较大波动"], ["put the proposal in writing", "把方案写下来，形成书面内容"]]}, "vocab": {"head": ["词汇", "音标（美式）", "本文含义", "常见搭配"], "rows": [["consistent", "/kənˈsɪstənt/", "持续稳定的；前后一致的", "consistent improvement（持续进步）；be consistent with（与……一致）"], ["commitment", "/kəˈmɪtmənt/", "投入、认真付出；承诺", "show commitment（表现出投入）；commitment to improving（对改善的投入）"], ["proposal", "/prəˈpoʊzəl/", "提议、方案", "make a proposal（提出方案）；accept a proposal（接受方案）"], ["permanent", "/ˈpɜːrmənənt/", "永久的、长期固定的", "a permanent increase（长期有效的上调）；反义词 temporary（临时的）"], ["vary considerably", "/ˈveri kənˈsɪdərəbli/", "变化很大、差异明显；收入波动较大", "vary considerably from week to week（每周波动较大）"]]}, "notes": [], "writing": null, "zhBlocks": [{"label": false, "text": "加入公会三个月后，Mia 向 Daniel 要求提高礼物收益分成。她觉得，自己规律开播、观众不断增长，已经使她有理由获得更好的合作条件。"}, {"label": false, "text": "她说：“另一家公会给我开出了更高的分成比例。我很喜欢与你们团队合作，但我也需要考虑自己的收入。”"}, {"label": false, "text": "Daniel 没有立即报价，而是询问另一家公会的方案包含什么。更高的比例是长期有效的，还是仅在第一个月适用？它是否附带最低开播时长或收益目标？"}, {"label": false, "text": "Mia 承认，她还没有核实所有细节。"}, {"label": false, "text": "Daniel 说：“我很感谢你的投入，也希望找到一个能让我们继续合作的办法。但在你决定之前，比较完整的合作条款很重要。”"}, {"label": false, "text": "随后，他与她一起复盘了她近期的表现。她的收益正在提高，不过每周之间仍有较大波动。Daniel 提议，她达到双方约定的月度目标后可以提高分成，并提供每周辅导帮助她达标。"}, {"label": false, "text": "Mia 没有立刻接受。她请他把方案写下来，以便仔细比较两份报价。"}], "topic_en": "A host has a competing offer. What would you ask before you make any counter-offer?", "topic_zh": "主播拿着别家的报价来谈。你在还价之前必须问清哪几件事？", "roles": ["主播 Mia", "公会负责人 Daniel", "另一家公会的经纪人"], "prompt": "你扮演主播 Mia，手上有另一家公会更高的分成报价，但你还没核实细节。我是你的公会负责人。请用英文提出涨分成要求；我追问条款时，承认有些细节你没看清。"}, {"id": 6, "title": "主播过度依赖单一大额付费用户", "objectives": ["认可主播进步，同时说明收入过度集中的风险。", "兼顾忠实支持者与其他观众的互动体验。", "同时观察收益、观看时长与回访情况。"], "bodyTitle": "When One Viewer Makes a Big Difference", "paragraphs": [{"segs": [{"n": 1, "t": "During a weekly review, Emma noticed that more than half of one host’s gift revenue came from a single viewer."}, {"n": 0, "t": " "}, {"n": 2, "t": "The host, Lily, was pleased with her recent earnings and hoped they would continue to grow."}], "zh": "在一次每周复盘中，Emma 注意到，一位主播一半以上的礼物收益来自同一名观众。这位名叫 Lily 的主播对近期收入很满意，希望收入继续增长。"}, {"segs": [{"n": 3, "t": "Emma acknowledged her progress but raised a concern."}], "zh": "Emma 认可了她的进步，但也提出一个担忧。"}, {"segs": [{"n": 4, "t": "“Your results have improved, and that reflects the effort you’ve put in,” she said."}, {"n": 0, "t": " “"}, {"n": 5, "t": "However, your income could vary considerably if this viewer stops sending gifts."}, {"n": 0, "t": "”"}], "zh": "她说：“你的成绩提高了，这体现了你付出的努力。不过，如果这位观众停止送礼，你的收入可能出现较大波动。”"}, {"segs": [{"n": 6, "t": "Lily understood the risk, but she was unsure how to respond."}, {"n": 0, "t": " "}, {"n": 7, "t": "Whenever that viewer entered the room, she naturally gave him most of her attention."}, {"n": 0, "t": " "}, {"n": 8, "t": "Meanwhile, other viewers often left without joining the conversation."}], "zh": "Lily 理解这个风险，但不确定该如何应对。每当那位观众进房，她自然会把大部分注意力放在他身上。与此同时，其他观众常常还没参与对话就离开了。"}, {"segs": [{"n": 9, "t": "Emma suggested making a small change: greet the regular supporter warmly, then bring other people into the discussion."}, {"n": 0, "t": " "}, {"n": 10, "t": "She also encouraged Lily to ask questions that anyone could answer, rather than relying on private jokes that newcomers might not understand."}], "zh": "Emma 建议稍作调整：先热情欢迎这位常来的支持者，再邀请其他人参与讨论。她还鼓励 Lily 问一些人人都能回答的问题，而不是依赖新人可能听不懂的内部梗。"}, {"segs": [{"n": 11, "t": "“The goal is to make more people feel welcome,” Emma explained."}, {"n": 0, "t": " “"}, {"n": 12, "t": "You can appreciate a loyal supporter while still building relationships with the rest of your audience."}, {"n": 0, "t": "”"}], "zh": "Emma 解释说：“目标是让更多人感到自己受到欢迎。你可以感谢一位忠实支持者，同时继续与其他观众建立关系。”"}, {"segs": [{"n": 13, "t": "Over the next two weeks, they would track average viewing time and the number of returning viewers alongside gift revenue."}, {"n": 0, "t": " "}, {"n": 14, "t": "These measures would help them see whether Lily was building a more stable audience."}], "zh": "接下来两周，他们会在跟踪礼物收益的同时，跟踪平均观看时长和回访观众人数。这些指标能帮助他们判断，Lily 是否正在建立更稳定的观众群。"}], "sentences": [{"n": 1, "chunks": ["During a weekly review,", "Emma noticed", "that more than half of one host’s gift revenue came from a single viewer."], "text": "During a weekly review, Emma noticed that more than half of one host’s gift revenue came from a single viewer.", "structure": "主句：Emma（主语）+ noticed（谓语）+ that 从句（宾语）；During a weekly review 为时间状语。从句：more than half of one host’s gift revenue（主语）+ came（谓语）+ from a single viewer（来源状语）。", "grammar": "结构：notice that + 从句；more than half of + 名词短语；come from + 来源。"}, {"n": 2, "chunks": ["The host, Lily,", "was pleased with her recent earnings", "and hoped they would continue to grow."], "text": "The host, Lily, was pleased with her recent earnings and hoped they would continue to grow.", "structure": "主语：The host；Lily 是同位语；并列谓语结构：was pleased…、hoped…，分别接 with her recent earnings 和省略 that 的宾语从句。从句：they（主语）+ would continue（谓语）+ to grow（不定式补足成分）。", "grammar": "搭配：be pleased with；hope (that) + 从句；continue to do；they 指 earnings。"}, {"n": 3, "chunks": ["Emma acknowledged her progress", "but raised a concern."], "text": "Emma acknowledged her progress but raised a concern.", "structure": "主语：Emma；并列谓语：acknowledged、raised；对应宾语：her progress、a concern；but 连接两个谓语部分。", "grammar": "搭配：acknowledge + 名词；raise a concern；两处谓语共用主语。"}, {"n": 4, "chunks": ["“Your results have improved,", "and that reflects the effort you’ve put in,”", "she said."], "text": "“Your results have improved, and that reflects the effort you’ve put in,” she said.", "structure": "引语第一分句：Your results + have improved；第二分句：that（主语，指前一分句内容）+ reflects（谓语）+ the effort you’ve put in（宾语）。you’ve put in 是修饰 effort 的定语从句，省略宾语关系代词 that/which；从句主语为 you，谓语为 have put in。she said 为引述部分。", "grammar": "搭配：put in effort；定语从句还原为 you have put in the effort；关系代词作宾语可省略。"}, {"n": 5, "chunks": ["However,", "your income could vary considerably", "if this viewer stops sending gifts."], "text": "However, your income could vary considerably if this viewer stops sending gifts.", "structure": "主句：your income（主语）+ could vary（谓语）+ considerably（程度状语）；However 为连接副词。if 条件从句：this viewer（主语）+ stops（谓语）+ sending gifts（动名词宾语），gifts 为 sending 的宾语。", "grammar": "搭配：vary + 程度副词；stop doing；could + 动词原形。"}, {"n": 6, "chunks": ["Lily understood the risk,", "but she was unsure how to respond."], "text": "Lily understood the risk, but she was unsure how to respond.", "structure": "第一分句：Lily + understood + the risk；第二分句：she（主语）+ was（系动词）+ unsure（表语），how to respond 补充 unsure 的内容。but 连接分句。", "grammar": "结构：疑问词 + to do；how to respond 为非谓语结构，不是带时态的完整从句。"}, {"n": 7, "chunks": ["Whenever that viewer entered the room,", "she naturally gave him most of her attention."], "text": "Whenever that viewer entered the room, she naturally gave him most of her attention.", "structure": "主句：she（主语）+ gave（谓语）+ him（间接宾语）+ most of her attention（直接宾语）；naturally 为方式状语。Whenever 引导时间状语从句：that viewer + entered + the room。", "grammar": "句型：give + 人 + 物；whenever + 从句。"}, {"n": 8, "chunks": ["Meanwhile,", "other viewers often left", "without joining the conversation."], "text": "Meanwhile, other viewers often left without joining the conversation.", "structure": "主语：other viewers；谓语：left；often 为频率状语；without joining the conversation 为伴随/方式状语；Meanwhile 为连接副词；joining 的宾语是 the conversation。", "grammar": "结构：without + 动词-ing；join + 活动名词。"}, {"n": 9, "chunks": ["Emma suggested making a small change:", "greet the regular supporter warmly,", "then bring other people into the discussion."], "text": "Emma suggested making a small change: greet the regular supporter warmly, then bring other people into the discussion.", "structure": "主句：Emma（主语）+ suggested（谓语）+ making a small change（动名词宾语）；change 为 making 的宾语。冒号后为两个祈使结构，省略主语 you：greet + the regular supporter + warmly；bring + other people + into the discussion。", "grammar": "搭配：suggest doing；make a change；bring + 宾语 + into + 名词；then 标记动作顺序。"}, {"n": 10, "chunks": ["She also encouraged Lily to ask questions that anyone could answer,", "rather than relying on private jokes that newcomers might not understand."], "text": "She also encouraged Lily to ask questions that anyone could answer, rather than relying on private jokes that newcomers might not understand.", "structure": "主句：She（主语）+ encouraged（谓语）+ Lily（宾语）+ to ask questions…（宾语补足语）。that anyone could answer 修饰 questions，that 作 answer 的宾语；that newcomers might not understand 修饰 private jokes，that 作 understand 的宾语。rather than relying on… 为对比状语。", "grammar": "搭配：encourage + 人 + to do；rely on + 名词；定语从句中两个 that 都作宾语。"}, {"n": 11, "chunks": ["“The goal", "is to make more people feel welcome,”", "Emma explained."], "text": "“The goal is to make more people feel welcome,” Emma explained.", "structure": "引语：The goal（主语）+ is（系动词）+ to make more people feel welcome（不定式表语）。make 后 more people 为宾语，feel welcome 为宾语补足语；feel 为系动词，welcome 为表语。Emma explained 为引述部分。", "grammar": "句型：make + 宾语 + 动词原形；feel + 形容词。"}, {"n": 12, "chunks": ["You can appreciate a loyal supporter", "while still building relationships with the rest of your audience."], "text": "You can appreciate a loyal supporter while still building relationships with the rest of your audience.", "structure": "主句：You（主语）+ can appreciate（谓语）+ a loyal supporter（宾语）；while still building… 为省略结构，逻辑主语是 You。building 的宾语是 relationships，with the rest of your audience 修饰 relationships。", "grammar": "结构：while + 动词-ing（与主句同主语）；the rest of + 名词短语；build relationships with + 人。"}, {"n": 13, "chunks": ["Over the next two weeks,", "they would track average viewing time and the number of returning viewers", "alongside gift revenue."], "text": "Over the next two weeks, they would track average viewing time and the number of returning viewers alongside gift revenue.", "structure": "主语：they；谓语：would track；并列宾语：average viewing time、the number of returning viewers；Over the next two weeks 为时间状语；alongside gift revenue 补充并行跟踪的指标。", "grammar": "时态：would + 动词原形，过去将来时；returning 为现在分词作定语，修饰 viewers；the number of + 复数名词。"}, {"n": 14, "chunks": ["These measures would help them see", "whether Lily was building a more stable audience."], "text": "These measures would help them see whether Lily was building a more stable audience.", "structure": "主句：These measures（主语）+ would help（谓语）+ them（宾语）+ see…（宾语补足语）。see 的宾语为 whether 从句：Lily（主语）+ was building（谓语）+ a more stable audience（宾语）。", "grammar": "句型：help + 宾语 + (to) do；whether 引导宾语从句；was + 动词-ing 为过去进行时；more stable 作定语。"}], "expressions": {"head": ["英文", "中文"], "rows": [["acknowledge her progress", "认可她的进步"], ["raise a concern", "提出一个担忧"], ["reflect the effort you’ve put in", "体现你付出的努力"], ["rely on…", "依赖……"], ["bring other people into the discussion", "让其他人也参与讨论"], ["private jokes", "只有特定几个人才懂的笑话、内部梗"], ["a loyal supporter", "一位忠实的支持者"], ["track average viewing time", "跟踪平均观看时长"], ["returning viewers", "回访观众"], ["alongside gift revenue", "与礼物收益一起，同时关注"]]}, "vocab": {"head": ["词汇", "音标（美式）", "本文含义", "常见搭配"], "rows": [["vary considerably", "/ˈveri kənˈsɪdərəbli/", "变化很大、差异明显；收入波动较大", "vary considerably from week to week（每周波动较大）"]]}, "notes": [], "writing": null, "zhBlocks": [{"label": false, "text": "在一次每周复盘中，Emma 注意到，一位主播一半以上的礼物收益来自同一名观众。这位名叫 Lily 的主播对近期收入很满意，希望收入继续增长。"}, {"label": false, "text": "Emma 认可了她的进步，但也提出一个担忧。"}, {"label": false, "text": "她说：“你的成绩提高了，这体现了你付出的努力。不过，如果这位观众停止送礼，你的收入可能出现较大波动。”"}, {"label": false, "text": "Lily 理解这个风险，但不确定该如何应对。每当那位观众进房，她自然会把大部分注意力放在他身上。与此同时，其他观众常常还没参与对话就离开了。"}, {"label": false, "text": "Emma 建议稍作调整：先热情欢迎这位常来的支持者，再邀请其他人参与讨论。她还鼓励 Lily 问一些人人都能回答的问题，而不是依赖新人可能听不懂的内部梗。"}, {"label": false, "text": "Emma 解释说：“目标是让更多人感到自己受到欢迎。你可以感谢一位忠实支持者，同时继续与其他观众建立关系。”"}, {"label": false, "text": "接下来两周，他们会在跟踪礼物收益的同时，跟踪平均观看时长和回访观众人数。这些指标能帮助他们判断，Lily 是否正在建立更稳定的观众群。"}], "topic_en": "How do you keep a big spender happy without letting the rest of the room go quiet?", "topic_zh": "怎样既让大额付费用户满意，又不让直播间其他观众沉默？", "roles": ["主播 Lily", "平台运营 Emma", "大额付费用户"], "prompt": "你扮演主播 Lily，一位观众贡献了你一半以上的礼物收入。我是平台运营，刚提醒你收入过于集中。请用英文为“多照顾他”辩护，并说明你担心失去他。"}, {"id": 7, "title": "主播应对负面评论", "objectives": ["回应主播收到负面评论后的情绪与担忧。", "准备应对话术，讨论举报、屏蔽和停止回应的时机。", "安排下一场直播并复盘，帮助主播维护个人边界。"], "bodyTitle": "Handling Negative Comments", "paragraphs": [{"segs": [{"n": 1, "t": "During an evening broadcast, a viewer made several rude comments about Lily’s appearance."}, {"n": 0, "t": " "}, {"n": 2, "t": "Although some regular viewers defended her, she became quiet and ended the stream earlier than planned."}], "zh": "在一场晚间直播中，一位观众针对 Lily 的外貌发表了几条不礼貌的评论。虽然一些常来的观众为她辩护，但她变得沉默，并比原计划提前结束了直播。"}, {"segs": [{"n": 3, "t": "The next morning, Lily told Emma that she was worried about going live again."}], "zh": "第二天早上，Lily 告诉 Emma，她担心再次开播。"}, {"segs": [{"n": 4, "t": "“I know I can’t please everyone,” she said, “but it’s difficult to stay confident when someone criticizes me in front of other people.”"}], "zh": "她说：“我知道自己不可能让所有人满意，但当有人在其他人面前批评我时，很难保持自信。”"}, {"segs": [{"n": 5, "t": "Emma listened without interrupting."}, {"n": 0, "t": " "}, {"n": 6, "t": "Rather than telling Lily to ignore her feelings, she acknowledged that the experience had been upsetting."}], "zh": "Emma 听她说，没有打断。她没有让 Lily 忽略自己的感受，而是承认这次经历令人难过。"}, {"segs": [{"n": 7, "t": "“You don’t have to accept disrespectful behavior just because you’re a host,” she explained."}, {"n": 0, "t": " “"}, {"n": 8, "t": "Let’s check what moderation tools are available and agree on how to handle similar situations."}, {"n": 0, "t": "”"}], "zh": "她解释道：“你不必仅仅因为自己是主播，就接受不尊重人的行为。我们一起看看有哪些可用的管理工具，并商量好如何应对类似情况。”"}, {"segs": [{"n": 9, "t": "Together, they prepared a short response that Lily could use if it happened again."}, {"n": 0, "t": " "}, {"n": 10, "t": "They also discussed when to stop responding and use the platform’s reporting or blocking features."}], "zh": "她们一起准备了一段简短的回应话术，供 Lily 在类似情况再次发生时使用。她们还讨论了什么时候应该停止回应，转而使用平台的举报或屏蔽功能。"}, {"segs": [{"n": 11, "t": "Emma suggested focusing the next broadcast on a familiar topic so that Lily would feel more comfortable leading the conversation."}], "zh": "Emma 建议下一场直播围绕一个 Lily 熟悉的话题展开，让她在引导对话时感到更自在。"}, {"segs": [{"n": 12, "t": "After the broadcast, they would review how Lily had felt and whether the plan had helped."}, {"n": 0, "t": " "}, {"n": 13, "t": "The goal was to help her respond with confidence while protecting her own boundaries."}], "zh": "直播结束后，她们会复盘 Lily 当时的感受，以及这套方案是否有效。目标是帮助她自信地回应，同时维护自己的边界。"}], "sentences": [{"n": 1, "chunks": ["During an evening broadcast,", "a viewer made several rude comments", "about Lily’s appearance."], "text": "During an evening broadcast, a viewer made several rude comments about Lily’s appearance.", "structure": "a viewer 是主语；made 是谓语，一般过去时；several rude comments 是宾语；During an evening broadcast 是时间状语，不是从句；about Lily’s appearance 是介词短语，作后置定语修饰 comments。", "grammar": "make comments about + 人/事物；several 修饰可数名词复数；rude 是形容词，作 comments 的定语。"}, {"n": 2, "chunks": ["Although some regular viewers defended her,", "she became quiet", "and ended the stream earlier than planned."], "text": "Although some regular viewers defended her, she became quiet and ended the stream earlier than planned.", "structure": "Although 引导让步状语从句：some regular viewers（主语）+ defended（谓语）+ her（宾语）。主句共用主语 she；第一部分 became（系动词）+ quiet（表语）；第二部分 ended（谓语）+ the stream（宾语）。earlier than planned 作时间比较状语，than planned 可展开为 than she had planned。", "grammar": "become + 形容词；end the stream；earlier 是副词比较级；although 引导从句时，主句不再用 but 连接。"}, {"n": 3, "chunks": ["The next morning,", "Lily told Emma", "that she was worried about going live again."], "text": "The next morning, Lily told Emma that she was worried about going live again.", "structure": "The next morning 为时间状语；Lily 是主语，told 是谓语，Emma 是间接宾语，that 从句是直接宾语。从句内部：she（主语）+ was（系动词）+ worried（表语）；about going live again 补充 worried 的内容；going live again 是介词 about 的动名词宾语。", "grammar": "tell someone that…；be worried about + 名词/动词-ing；go live；live 在 go live 中作表语。"}, {"n": 4, "chunks": ["“I know I can’t please everyone,”", "she said,", "“but it’s difficult to stay confident", "when someone criticizes me in front of other people.”"], "text": "“I know I can’t please everyone,” she said, “but it’s difficult to stay confident when someone criticizes me in front of other people.”", "structure": "引语由 but 连接两个分句。第一部分：I（主语）+ know（谓语）+ 省略 that 的宾语从句；从句为 I + cannot please + everyone。第二部分：it 是形式主语，is 是系动词，difficult 是表语，to stay confident 是真正主语，其中 stay 是系动词、confident 是表语。when 引导时间状语从句：someone + criticizes + me；in front of other people 作地点状语。she said 为插入的引述部分。", "grammar": "please + 人，please 在此是动词；It is + 形容词 + to do；stay + 形容词；in front of + 名词。"}, {"n": 5, "chunks": ["Emma", "listened", "without interrupting."], "text": "Emma listened without interrupting.", "structure": "Emma 是主语；listened 是谓语，一般过去时；without interrupting 是介词短语，作方式/伴随状语。interrupting 为动名词，作 without 的宾语。", "grammar": "without + 动词-ing；listen 在本句中不接宾语。"}, {"n": 6, "chunks": ["Rather than telling Lily to ignore her feelings,", "she acknowledged", "that the experience had been upsetting."], "text": "Rather than telling Lily to ignore her feelings, she acknowledged that the experience had been upsetting.", "structure": "she 是主语，acknowledged 是谓语，that 从句作宾语；从句内部：the experience（主语）+ had been（系动词的过去完成时形式）+ upsetting（形容词表语）。Rather than telling… 为对比状语；telling 后 Lily 为宾语，to ignore her feelings 为宾语补足语；her feelings 是 ignore 的宾语。", "grammar": "rather than doing；tell someone to do；acknowledge that…；upsetting 虽以 -ing 结尾，此处是形容词，不构成进行时。"}, {"n": 7, "chunks": ["“You don’t have to accept disrespectful behavior", "just because you’re a host,”", "she explained."], "text": "“You don’t have to accept disrespectful behavior just because you’re a host,” she explained.", "structure": "引语主语为 You；don’t have to accept 为否定的谓语动词结构，中心动作是 accept，宾语为 disrespectful behavior。because 引导原因状语从句：you（主语）+ are（系动词）+ a host（表语）；just 修饰原因部分。she explained 为引述部分。", "grammar": "have to + 动词原形；don’t have to 表示没有义务，不等于 must not；disrespectful 作 behavior 的定语。"}, {"n": 8, "chunks": ["Let’s check what moderation tools are available", "and agree on how to handle similar situations."], "text": "Let’s check what moderation tools are available and agree on how to handle similar situations.", "structure": "Let’s 引导祈使结构；check 与 agree 是并列动词。check 后为宾语从句：what moderation tools（主语）+ are（系动词）+ available（表语），what 是修饰 tools 的疑问限定词。on 后的 how to handle similar situations 是“疑问词 + 不定式”结构，作介词宾语，内部 similar situations 是 handle 的宾语。", "grammar": "Let’s + 动词原形；agree on + 名词/疑问词不定式结构；宾语从句使用陈述语序；how to handle… 不是带时态的完整从句。"}, {"n": 9, "chunks": ["Together,", "they prepared a short response", "that Lily could use if it happened again."], "text": "Together, they prepared a short response that Lily could use if it happened again.", "structure": "they 是主语，prepared 是谓语，a short response 是宾语；Together 为方式状语。that 引导修饰 response 的定语从句：Lily 是主语，could use 是谓语，that 是 use 的宾语。if it happened again 是该定语从句内部的条件状语从句：it（主语）+ happened（谓语）+ again（状语）。", "grammar": "prepare a response；could + 动词原形；定语从句中的 that 作宾语，可以省略；it 指此前遭遇不礼貌评论的情况。"}, {"n": 10, "chunks": ["They also discussed", "when to stop responding", "and use the platform’s reporting or blocking features."], "text": "They also discussed when to stop responding and use the platform’s reporting or blocking features.", "structure": "They 是主语，discussed 是谓语；when to stop responding and use… 是“疑问词 + 不定式”结构，整体作宾语。stop 与 use 并列，共用 to；responding 是 stop 的动名词宾语；the platform’s reporting or blocking features 是 use 的宾语。", "grammar": "discuss + 疑问词不定式结构；stop doing；use features；reporting、blocking 作 features 的前置修饰语。"}, {"n": 11, "chunks": ["Emma suggested focusing the next broadcast on a familiar topic", "so that Lily would feel more comfortable leading the conversation."], "text": "Emma suggested focusing the next broadcast on a familiar topic so that Lily would feel more comfortable leading the conversation.", "structure": "Emma 是主语，suggested 是谓语，focusing… 是动名词短语，作宾语；the next broadcast 是 focusing 的宾语，on a familiar topic 补充聚焦的内容。so that 引导目的状语从句：Lily（主语）+ would feel（含情态动词的系动词结构）+ more comfortable（表语）；leading the conversation 补充 comfortable 的情境，the conversation 是 leading 的宾语。", "grammar": "suggest doing；focus A on B；feel comfortable doing；so that + 主语 + would/could + 动词原形。"}, {"n": 12, "chunks": ["After the broadcast,", "they would review how Lily had felt", "and whether the plan had helped."], "text": "After the broadcast, they would review how Lily had felt and whether the plan had helped.", "structure": "they 是主语，would review 是谓语，后接两个并列宾语从句；After the broadcast 为时间状语。how Lily had felt 中 Lily 为主语、had felt 为谓语，how 询问感受；whether the plan had helped 中 the plan 为主语、had helped 为谓语。", "grammar": "would + 动词原形表示过去将来；两处 had + 过去分词表示预期复盘时回顾已经发生的体验与结果；how、whether 分别引导宾语从句。"}, {"n": 13, "chunks": ["The goal was to help her respond with confidence", "while protecting her own boundaries."], "text": "The goal was to help her respond with confidence while protecting her own boundaries.", "structure": "The goal 是主语，was 是系动词，to help her respond… 是不定式表语。help 后 her 为宾语，respond with confidence 为宾语补足语；with confidence 作方式状语。while protecting… 为省略结构，逻辑上执行 protecting 的人是 her 所指的 Lily，而不是 The goal；her own boundaries 为 protecting 的宾语。", "grammar": "help + 宾语 + (to) do；respond with confidence；protect one’s boundaries；此句 while 部分依附于帮助 Lily 应对的内容，可理解为让她在回应时同时维护边界。"}], "expressions": {"head": ["表达", "含义"], "rows": [["end the stream earlier than planned", "比计划提前结束直播"], ["go live", "开始直播"], ["please everyone", "让所有人满意"], ["criticize someone in front of others", "当着其他人的面批评某人"], ["without interrupting", "没有打断对方"], ["moderation tools", "内容及互动管理工具"], ["handle similar situations", "应对类似情况"], ["protect one’s own boundaries", "维护自己的边界"]]}, "vocab": {"head": ["词汇", "本文含义", "常见搭配"], "rows": [["appearance", "外貌", "comments about someone’s appearance"], ["defend", "维护、为……辩护", "defend someone"], ["confident", "有信心的", "stay confident；respond with confidence（名词形式）"], ["acknowledge", "承认、认可", "acknowledge that…"], ["upsetting", "令人难过的", "an upsetting experience；区别于 upset（感到难过的）"], ["disrespectful", "不尊重人的", "disrespectful behavior"], ["moderation", "内容及互动管理", "moderation tools"], ["boundary", "边界、界限", "protect one’s boundaries"]]}, "notes": [], "writing": null, "zhBlocks": [{"label": false, "text": "在一场晚间直播中，一位观众针对 Lily 的外貌发表了几条不礼貌的评论。虽然一些常来的观众为她辩护，但她变得沉默，并比原计划提前结束了直播。"}, {"label": false, "text": "第二天早上，Lily 告诉 Emma，她担心再次开播。"}, {"label": false, "text": "她说：“我知道自己不可能让所有人满意，但当有人在其他人面前批评我时，很难保持自信。”"}, {"label": false, "text": "Emma 听她说，没有打断。她没有让 Lily 忽略自己的感受，而是承认这次经历令人难过。"}, {"label": false, "text": "她解释道：“你不必仅仅因为自己是主播，就接受不尊重人的行为。我们一起看看有哪些可用的管理工具，并商量好如何应对类似情况。”"}, {"label": false, "text": "她们一起准备了一段简短的回应话术，供 Lily 在类似情况再次发生时使用。她们还讨论了什么时候应该停止回应，转而使用平台的举报或屏蔽功能。"}, {"label": false, "text": "Emma 建议下一场直播围绕一个 Lily 熟悉的话题展开，让她在引导对话时感到更自在。"}, {"label": false, "text": "直播结束后，她们会复盘 Lily 当时的感受，以及这套方案是否有效。目标是帮助她自信地回应，同时维护自己的边界。"}], "topic_en": "What would you say to a host the morning after a rude comment — in the first two minutes?", "topic_zh": "主播被恶评的第二天早上，你见到她的前两分钟会说什么？", "roles": ["不想再开播的主播 Lily", "平台运营 Emma", "出言不逊的观众"], "prompt": "你扮演主播 Lily，昨晚被观众评论外貌，今天不想开播。我是平台运营。请用英文说出你的担心，并对“直接举报就好”这种建议表达不满。"}]};</script>
+<script>
+(function(){
+  "use strict";
+  const DATA = window.__DATA__;
+  const SCENES = DATA.scenes;
+  const STEPS = DATA.steps;
+  const STEP_IDS = STEPS.map(s => s.id);
+  const KEY = "elelive.english.practice.v1";
+  const stage = document.getElementById("stage");
+  const nav = document.getElementById("sceneNav");
+  const drawer = document.getElementById("drawer");
+  const drawerBody = document.getElementById("drawerBody");
+  const drawerNum = document.getElementById("drawerNum");
+  const scrim = document.getElementById("scrim");
+  const toastEl = document.getElementById("toast");
+  const meterFill = document.getElementById("meterFill");
+  const meterText = document.getElementById("meterText");
+  const meterTrack = document.getElementById("meterTrack");
+
+  const SPEAKER = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 6h2.2L9 3.2v9.6L5.2 10H3z" fill="currentColor"/><path d="M11.2 5.4c.9.6 1.4 1.5 1.4 2.6s-.5 2-1.4 2.6" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>';
+
+  let state = loadState();
+  let lastFocus = null;
+  let saveTimer = null;
+  let savedTimer = null;
+
+  function loadState(){
+    const base = { scene: 1, step: "read", zh: false, blur: false, done: {}, drafts: {} };
+    try {
+      const raw = localStorage.getItem(KEY);
+      if (!raw) return base;
+      const saved = JSON.parse(raw);
+      const hasSavedScene = SCENES.some(scene => scene.id === saved.scene);
+      return Object.assign(base, saved, {
+        scene: hasSavedScene ? saved.scene : base.scene,
+        step: hasSavedScene ? saved.step : base.step,
+        done: saved.done || {},
+        drafts: saved.drafts || {}
+      });
+    } catch (err) {
+      return base;
+    }
+  }
+
+  function persist(now){
+    clearTimeout(saveTimer);
+    const write = () => {
+      try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (err) {}
+    };
+    if (now) write();
+    else saveTimer = setTimeout(write, 220);
+  }
+
+  function esc(value){
+    return String(value == null ? "" : value)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+
+  const hasCN = text => /[\u4e00-\u9fff]/.test(text);
+  const sceneById = id => SCENES.find(s => s.id === id);
+  const stepById = id => STEPS.find(s => s.id === id);
+  const doneKey = (scene, step) => scene + "." + step;
+  const isDone = (scene, step) => !!state.done[doneKey(scene, step)];
+  const pad = n => String(n).padStart(2, "0");
+  const paraText = p => p.segs.map(seg => seg.t).join("");
+
+  function countWords(text){
+    const trimmed = String(text || "").trim();
+    if (!trimmed) return 0;
+    return trimmed.split(/\s+/).length;
+  }
+
+  /* ---------- navigation ---------- */
+  function parseHash(){
+    const match = location.hash.match(/^#s(\d+)\/([a-z]+)$/);
+    if (match && sceneById(Number(match[1])) && STEP_IDS.includes(match[2])) {
+      state.scene = Number(match[1]);
+      state.step = match[2];
+    }
+  }
+
+  function go(scene, step, opts){
+    const target = sceneById(scene);
+    if (!target) return;
+    if (!STEP_IDS.includes(step)) step = "read";
+    state.scene = scene;
+    state.step = step;
+    persist();
+    try { history.replaceState(null, "", "#s" + scene + "/" + step); } catch (err) {}
+    render();
+    if (!(opts && opts.keepScroll)) window.scrollTo({ top: 0, behavior: "auto" });
+  }
+
+  function render(){
+    const scene = sceneById(state.scene);
+    document.title = pad(scene.id) + " " + scene.title + " · 海外社交直播英语";
+    stage.innerHTML = sceneHead(scene) + tabs() + '<section class="panel" id="panel">' + panel(scene) + "</section>";
+    renderNav();
+    updateMeter();
+  }
+
+  function sceneHead(scene){
+    const bodyText = scene.paragraphs.map(paraText).join(" ");
+    const words = countWords(bodyText);
+    const minutes = Math.max(1, Math.round(words / 170));
+    return '' +
+      '<header class="scene-head">' +
+        '<p class="eyebrow">Scene ' + pad(scene.id) + " · " + (scene.writing ? "Writing" : "Reading") + '</p>' +
+        '<h1>' + esc(scene.title) + '</h1>' +
+        '<p class="scene-meta">' + scene.paragraphs.length + " 段 · " + scene.sentences.length + " 句 · 约 " + minutes + " 分钟 · " + words + ' words</p>' +
+        '<ul class="objectives">' + scene.objectives.map(item => "<li>" + esc(item) + "</li>").join("") + '</ul>' +
+      '</header>';
+  }
+
+  function writingBrief(writing){
+    return '' +
+      '<aside class="brief">' +
+        '<p class="eyebrow">Writing task · 写作题</p>' +
+        '<h2>' + esc(writing.title) + '</h2>' +
+        '<p>' + esc(writing.intro) + '</p>' +
+        (writing.quote ? '<blockquote>' + esc(writing.quote) + '</blockquote>' : "") +
+        '<p class="task">' + esc(writing.task) + '</p>' +
+      '</aside>';
+  }
+
+  function tabs(){
+    return '<nav class="tabs" aria-label="练习步骤">' + STEPS.map(step => {
+      const active = state.step === step.id;
+      return '<button class="tab' + (active ? " is-active" : "") + '" data-act="step" data-step="' + step.id + '" title="' + esc(step.hint) + '"' + (active ? ' aria-current="step"' : "") + '>' +
+        '<span class="tab-label">' + esc(step.label) + '</span>' +
+        (isDone(state.scene, step.id) ? '<span class="tab-done" aria-label="已完成"></span>' : "") +
+      '</button>';
+    }).join("") + '</nav>';
+  }
+
+  function panel(scene){
+    switch (state.step) {
+      case "read": return readPanel(scene);
+      case "syntax": return syntaxPanel(scene);
+      case "vocab": return vocabPanel(scene);
+      case "translate": return translatePanel(scene);
+      case "output": return outputPanel(scene);
+      default: return readPanel(scene);
+    }
+  }
+
+  function doneBtn(sceneId, step){
+    const done = isDone(sceneId, step);
+    const last = sceneId === SCENES[SCENES.length - 1].id;
+    return '<footer class="panel-foot">' +
+      '<button class="done-btn' + (done ? " is-done" : "") + '" data-act="mark" aria-pressed="' + done + '">' + (done ? "已完成" : "标记本步完成") + '</button>' +
+      '<span class="foot-hint">' + esc(stepById(step).hint) + '</span>' +
+      '<button class="next-scene" data-act="next">' + (last ? "回到第 1 场景" : "下一场景") + ' <span aria-hidden="true">→</span></button>' +
+    '</footer>';
+  }
+
+  /* ---------- reading ---------- */
+  function readPanel(scene){
+    const blocks = scene.paragraphs.map(p => {
+      const segments = p.segs.map(seg => {
+        if (!seg.n) return esc(seg.t);
+        return '<span class="sent" role="button" tabindex="0" data-act="sent" data-n="' + seg.n + '" aria-label="查看第 ' + seg.n + ' 句的拆分">' + esc(seg.t) + '</span>';
+      }).join("");
+      return '<div class="para-block">' +
+        '<p class="para">' + segments + '</p>' +
+        (p.zh ? '<p class="para-zh">' + esc(p.zh) + '</p>' : "") +
+      '</div>';
+    }).join("");
+    return '' +
+      (scene.writing ? writingBrief(scene.writing) : "") +
+      '<div class="panel-head">' +
+        '<div>' +
+          '<p class="eyebrow">Text · 正文</p>' +
+          '<h2 class="body-title">' + esc(scene.bodyTitle) + '</h2>' +
+        '</div>' +
+        '<div class="tools"><button class="switch" data-act="toggle-zh" aria-pressed="' + state.zh + '">中文对照</button></div>' +
+      '</div>' +
+      '<p class="lede">点击任意句子，查看它的成分与搭配；中文对照默认隐藏，读完一段再打开更有效。</p>' +
+      '<div class="prose' + (state.zh ? " show-zh" : "") + '">' + blocks + '</div>' +
+      doneBtn(scene.id, "read");
+  }
+
+  /* ---------- syntax ---------- */
+  function syntaxPanel(scene){
+    const cards = scene.sentences.map(s => '' +
+      '<details class="syn-card" data-n="' + s.n + '">' +
+        '<summary>' +
+          '<span class="syn-num">' + pad(s.n) + '</span>' +
+          '<span class="syn-line">' + s.chunks.map(chunk => '<span class="chunk">' + esc(chunk) + '</span>').join("") + '</span>' +
+          '<span class="chev" aria-hidden="true"></span>' +
+        '</summary>' +
+        '<div class="syn-inner">' +
+          '<dl class="syn-dl">' +
+            '<dt>句子成分与结构</dt><dd>' + esc(s.structure) + '</dd>' +
+            '<dt>固定搭配与语法</dt><dd>' + esc(s.grammar) + '</dd>' +
+          '</dl>' +
+          '<button class="btn-line" data-act="speak-sentence" data-n="' + s.n + '">朗读原句</button>' +
+        '</div>' +
+      '</details>').join("");
+    return '' +
+      '<div class="panel-head">' +
+        '<div>' +
+          '<p class="eyebrow">Syntax · 长难句</p>' +
+          '<h2 class="body-title">句子拆分</h2>' +
+        '</div>' +
+        '<div class="tools"><button class="btn-line" data-act="expand-all" aria-expanded="false">全部展开</button></div>' +
+      '</div>' +
+      '<p class="lede">先自己划出意群，再展开对照。斜线只是意群边界，不是语法单位。</p>' +
+      '<div class="syn-list">' + cards + '</div>' +
+      doneBtn(scene.id, "syntax");
+  }
+
+  /* ---------- vocabulary ---------- */
+  function vocabPanel(scene){
+    return '' +
+      '<div class="panel-head">' +
+        '<div>' +
+          '<p class="eyebrow">Words · 表达</p>' +
+          '<h2 class="body-title">表达与词汇</h2>' +
+        '</div>' +
+        '<div class="tools"><button class="switch" data-act="toggle-blur" aria-pressed="' + state.blur + '">遮住中文自测</button></div>' +
+      '</div>' +
+      '<p class="lede">点单词旁的喇叭听发音。打开“遮住中文”后，释义会变模糊，鼠标移上去才显示，可以当作快速自测。</p>' +
+      '<div class="vocab-wrap' + (state.blur ? " is-blurred" : "") + '">' +
+        (scene.expressions ? tableBlock("常用表达", scene.expressions) : "") +
+        (scene.vocab ? tableBlock("重点词汇", scene.vocab) : "") +
+      '</div>' +
+      doneBtn(scene.id, "vocab");
+  }
+
+  function tableBlock(title, table){
+    const head = table.head.map(cell => "<th>" + esc(cell) + "</th>").join("");
+    const rows = table.rows.map(row => "<tr>" + row.map((cell, index) => {
+      const zhClass = hasCN(cell) ? ' class="zh"' : "";
+      if (index === 0 && !hasCN(cell)) {
+        const spoken = cell.split(" / ")[0];
+        return "<td" + zhClass + '><button class="word" data-act="speak" data-speak="' + esc(spoken) + '">' + esc(cell) + SPEAKER + "</button></td>";
+      }
+      return "<td" + zhClass + ">" + esc(cell) + "</td>";
+    }).join("") + "</tr>").join("");
+    return '<section class="vocab-block">' +
+      "<h3>" + esc(title) + "<span>" + table.rows.length + "</span></h3>" +
+      '<div class="table-scroll"><table class="vtable"><thead><tr>' + head + "</tr></thead><tbody>" + rows + "</tbody></table></div>" +
+    "</section>";
+  }
+
+  /* ---------- translation ---------- */
+  function translatePanel(scene){
+    const source = scene.zhBlocks.map(block => block.label
+      ? '<h3 class="zh-label">' + esc(block.text) + "</h3>"
+      : "<p>" + esc(block.text) + "</p>"
+    ).join("");
+    const draft = state.drafts["s" + scene.id + ".translate"] || "";
+    const original = scene.paragraphs.map((p, index) =>
+      '<p><span class="orig-i">' + pad(index + 1) + "</span>" + esc(paraText(p)) + "</p>"
+    ).join("");
+    return '' +
+      '<div class="panel-head">' +
+        '<div>' +
+          '<p class="eyebrow">Rewrite · 回译</p>' +
+          '<h2 class="body-title">看中文，写回英文</h2>' +
+        '</div>' +
+      '</div>' +
+      '<p class="lede">先不看原文，把下面的中文用英文写回来。自然、准确即可，不必逐字复原；写完再对照原文。</p>' +
+      '<div class="zh-source">' + source + '</div>' +
+      '<div class="writing">' +
+        '<textarea class="area" data-draft="s' + scene.id + '.translate" placeholder="Write your English version here…" spellcheck="true">' + esc(draft) + '</textarea>' +
+        '<div class="writing-foot">' +
+          '<span class="count" data-count>' + countWords(draft) + ' words</span>' +
+          '<span class="save-dot">自动保存</span>' +
+          '<button class="btn-line" data-act="reveal">对照英文原文</button>' +
+        '</div>' +
+      '</div>' +
+      '<div class="original" id="original" hidden>' +
+        '<p class="eyebrow">Original · 英文原文</p>' + original +
+      '</div>' +
+      doneBtn(scene.id, "translate");
+  }
+
+  /* ---------- output ---------- */
+  function outputPanel(scene){
+    const draft = state.drafts["s" + scene.id + ".output"] || "";
+    return '' +
+      '<div class="panel-head">' +
+        '<div>' +
+          '<p class="eyebrow">Free style · 输出</p>' +
+          '<h2 class="body-title">自己说一遍</h2>' +
+        '</div>' +
+        '<div class="tools"><button class="btn-line" data-act="copy-topic">复制主题</button></div>' +
+      '</div>' +
+      '<div class="topic">' +
+        '<p class="topic-en">' + esc(scene.topic_en) + '</p>' +
+        '<p class="topic-zh">' + esc(scene.topic_zh) + '</p>' +
+      '</div>' +
+      '<p class="lede">先脱离原文，用英文口述 60 秒，再写下来。比起复述课文，更重要的是给出你自己的判断和办法。</p>' +
+      '<div class="writing">' +
+        '<textarea class="area" data-draft="s' + scene.id + '.output" placeholder="Write or paste your answer here…" spellcheck="true">' + esc(draft) + '</textarea>' +
+        '<div class="writing-foot">' +
+          '<span class="count" data-count>' + countWords(draft) + ' words</span>' +
+          '<span class="save-dot">自动保存</span>' +
+        '</div>' +
+      '</div>' +
+      '<div class="roleplay">' +
+        '<p class="eyebrow">Role play · 角色对练</p>' +
+        '<div class="roles">' + scene.roles.map(role => '<span class="role">' + esc(role) + '</span>').join("") + '</div>' +
+        '<p class="lede">把下面这段发给 AI，让它扮演对手方，一次只问一个问题，并纠正你的表达。</p>' +
+        '<div class="prompt-box">' +
+          '<p>' + esc(scene.prompt) + '</p>' +
+          '<button class="btn-line" data-act="copy-prompt">复制提示词</button>' +
+        '</div>' +
+      '</div>' +
+      doneBtn(scene.id, "output");
+  }
+
+  /* ---------- sidebar ---------- */
+  function renderNav(){
+    nav.innerHTML = SCENES.map(scene => {
+      const active = scene.id === state.scene;
+      const dots = STEP_IDS.map(id => {
+        const on = isDone(scene.id, id);
+        const here = active && state.step === id;
+        return '<button class="dot' + (on ? " is-on" : "") + (here ? " is-here" : "") + '" data-act="scene" data-scene="' + scene.id + '" data-step="' + id + '" tabindex="-1" title="' + esc(stepById(id).label) + (on ? " · 已完成" : "") + '"></button>';
+      }).join("");
+      return '<div class="scene-row' + (active ? " is-active" : "") + '">' +
+        '<button class="scene-link" data-act="scene" data-scene="' + scene.id + '">' +
+          '<span class="scene-num">' + pad(scene.id) + '</span>' +
+          '<span class="scene-title">' + esc(scene.title) + '</span>' +
+        '</button>' +
+        '<div class="dots" role="group" aria-label="步骤进度">' + dots + '</div>' +
+      '</div>';
+    }).join("");
+  }
+
+  function updateMeter(){
+    const total = SCENES.length * STEP_IDS.length;
+    let done = 0;
+    SCENES.forEach(scene => STEP_IDS.forEach(id => { if (isDone(scene.id, id)) done += 1; }));
+    meterFill.style.width = (done / total * 100) + "%";
+    meterText.textContent = done + " / " + total;
+    meterTrack.setAttribute("aria-valuenow", String(done));
+    meterTrack.setAttribute("aria-valuemax", String(total));
+  }
+
+  /* ---------- progress & drafts ---------- */
+  function toggleMark(){
+    const key = doneKey(state.scene, state.step);
+    if (state.done[key]) delete state.done[key];
+    else state.done[key] = true;
+    persist(true);
+    const done = !!state.done[key];
+    stage.querySelectorAll(".done-btn").forEach(btn => {
+      btn.classList.toggle("is-done", done);
+      btn.setAttribute("aria-pressed", String(done));
+      btn.textContent = done ? "已完成" : "标记本步完成";
+    });
+    const tab = stage.querySelector('.tab[data-step="' + state.step + '"]');
+    if (tab) {
+      const mark = tab.querySelector(".tab-done");
+      if (done && !mark) {
+        const dot = document.createElement("span");
+        dot.className = "tab-done";
+        dot.setAttribute("aria-label", "已完成");
+        tab.appendChild(dot);
+      } else if (!done && mark) {
+        mark.remove();
+      }
+    }
+    renderNav();
+    updateMeter();
+    toast(done ? "已标记完成" : "已取消完成");
+  }
+
+  function refreshCount(input){
+    const foot = input.closest(".writing");
+    if (!foot) return;
+    const count = foot.querySelector("[data-count]");
+    if (count) count.textContent = countWords(input.value) + " words";
+    const saved = foot.querySelector(".save-dot");
+    if (saved) {
+      saved.textContent = "已保存";
+      clearTimeout(savedTimer);
+      savedTimer = setTimeout(() => {
+        document.querySelectorAll(".save-dot").forEach(el => { el.textContent = "自动保存"; });
+      }, 1400);
+    }
+  }
+
+  /* ---------- sentence drawer ---------- */
+  function openSentence(number){
+    const scene = sceneById(state.scene);
+    const sentence = scene.sentences.find(item => item.n === number);
+    if (!sentence) return;
+    drawerNum.textContent = pad(number);
+    drawerBody.innerHTML = '' +
+      '<p class="d-chunks">' + sentence.chunks.map(chunk => '<span>' + esc(chunk) + '</span>').join('<span class="d-slash">/</span>') + '</p>' +
+      '<button class="btn-line" data-act="speak-sentence" data-n="' + number + '">朗读原句</button>' +
+      '<dl class="d-analysis">' +
+        '<dt>句子成分与结构</dt><dd>' + esc(sentence.structure) + '</dd>' +
+        '<dt>固定搭配与语法</dt><dd>' + esc(sentence.grammar) + '</dd>' +
+      '</dl>';
+    lastFocus = document.activeElement;
+    drawer.classList.add("is-open");
+    drawer.setAttribute("aria-hidden", "false");
+    scrim.classList.add("is-open");
+    document.body.classList.add("no-scroll");
+    drawer.querySelector("[data-act='close-drawer']").focus();
+  }
+
+  function closeDrawer(){
+    drawer.classList.remove("is-open");
+    drawer.setAttribute("aria-hidden", "true");
+    scrim.classList.remove("is-open");
+    document.body.classList.remove("no-scroll");
+    if (lastFocus && typeof lastFocus.focus === "function") lastFocus.focus();
+  }
+
+  /* ---------- speech ---------- */
+  function speak(text){
+    if (!("speechSynthesis" in window)) {
+      toast("当前浏览器不支持朗读");
+      return;
+    }
+    const clean = String(text || "").replace(/\s*\/\s*/g, ", ").trim();
+    if (!clean) return;
+    window.speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(clean);
+    utterance.lang = "en-US";
+    utterance.rate = 0.94;
+    const voices = window.speechSynthesis.getVoices();
+    const voice = voices.find(v => v.lang === "en-US" && /Samantha|Aria|Jenny|Google US|Microsoft (Aria|Jenny|Guy)/i.test(v.name))
+      || voices.find(v => v.lang === "en-US")
+      || voices.find(v => (v.lang || "").indexOf("en") === 0);
+    if (voice) utterance.voice = voice;
+    window.speechSynthesis.speak(utterance);
+  }
+
+  function speakSentence(number){
+    const scene = sceneById(state.scene);
+    const sentence = scene.sentences.find(item => item.n === number);
+    if (sentence) speak(sentence.text);
+  }
+
+  /* ---------- clipboard & toast ---------- */
+  function toast(message){
+    toastEl.textContent = message;
+    toastEl.classList.add("is-show");
+    clearTimeout(toast._timer);
+    toast._timer = setTimeout(() => toastEl.classList.remove("is-show"), 1700);
+  }
+
+  function copy(text){
+    const done = () => toast("已复制");
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(done).catch(() => fallbackCopy(text, done));
+    } else {
+      fallbackCopy(text, done);
+    }
+  }
+
+  function fallbackCopy(text, done){
+    const area = document.createElement("textarea");
+    area.value = text;
+    area.setAttribute("readonly", "");
+    area.style.position = "fixed";
+    area.style.opacity = "0";
+    document.body.appendChild(area);
+    area.select();
+    try { document.execCommand("copy"); done(); } catch (err) { toast("复制失败，请手动选择"); }
+    area.remove();
+  }
+
+  function buildPrompt(){
+    const scene = sceneById(state.scene);
+    return "【场景 " + scene.id + " · " + scene.title + "】\n" +
+      scene.objectives.map(item => "· " + item).join("\n") + "\n\n" +
+      scene.prompt + "\n\n" +
+      "请全部用英文与我对话，每次只问一个问题；如果我的表达不自然，先回应内容，再给出更地道的说法。";
+  }
+
+  /* ---------- events ---------- */
+  document.addEventListener("click", event => {
+    const el = event.target.closest("[data-act]");
+    if (!el) return;
+    const act = el.dataset.act;
+    if (act === "scene") {
+      go(Number(el.dataset.scene), el.dataset.step || "read");
+    } else if (act === "step") {
+      go(state.scene, el.dataset.step);
+    } else if (act === "sent") {
+      openSentence(Number(el.dataset.n));
+    } else if (act === "close-drawer") {
+      closeDrawer();
+    } else if (act === "toggle-zh") {
+      state.zh = !state.zh;
+      persist();
+      el.setAttribute("aria-pressed", String(state.zh));
+      const prose = stage.querySelector(".prose");
+      if (prose) prose.classList.toggle("show-zh", state.zh);
+    } else if (act === "toggle-blur") {
+      state.blur = !state.blur;
+      persist();
+      el.setAttribute("aria-pressed", String(state.blur));
+      const wrap = stage.querySelector(".vocab-wrap");
+      if (wrap) wrap.classList.toggle("is-blurred", state.blur);
+    } else if (act === "expand-all") {
+      const cards = Array.from(stage.querySelectorAll(".syn-card"));
+      const allOpen = cards.length > 0 && cards.every(card => card.open);
+      cards.forEach(card => { card.open = !allOpen; });
+      el.textContent = allOpen ? "全部展开" : "全部收起";
+      el.setAttribute("aria-expanded", String(!allOpen));
+    } else if (act === "speak") {
+      speak(el.dataset.speak);
+    } else if (act === "speak-sentence") {
+      speakSentence(Number(el.dataset.n));
+    } else if (act === "reveal") {
+      const original = document.getElementById("original");
+      if (!original) return;
+      original.hidden = !original.hidden;
+      el.textContent = original.hidden ? "对照英文原文" : "收起原文";
+      if (!original.hidden) original.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    } else if (act === "mark") {
+      toggleMark();
+    } else if (act === "next") {
+      const index = SCENES.findIndex(scene => scene.id === state.scene);
+      const next = SCENES[(index + 1) % SCENES.length];
+      go(next.id, "read");
+    } else if (act === "copy-prompt") {
+      copy(buildPrompt());
+    } else if (act === "copy-topic") {
+      const scene = sceneById(state.scene);
+      copy(scene.topic_en + "\n" + scene.topic_zh);
+    } else if (act === "reset") {
+      if (window.confirm("确定清空全部练习进度和草稿吗？此操作无法撤销。")) {
+        state.done = {};
+        state.drafts = {};
+        persist(true);
+        render();
+        toast("已重置");
+      }
+    }
+  });
+
+  stage.addEventListener("keydown", event => {
+    if ((event.key === "Enter" || event.key === " ") && event.target.classList.contains("sent")) {
+      event.preventDefault();
+      event.target.click();
+    }
+  });
+
+  stage.addEventListener("input", event => {
+    const area = event.target.closest("textarea[data-draft]");
+    if (!area) return;
+    state.drafts[area.dataset.draft] = area.value;
+    persist();
+    refreshCount(area);
+  });
+
+  scrim.addEventListener("click", closeDrawer);
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && drawer.classList.contains("is-open")) closeDrawer();
+  });
+
+  document.getElementById("brand").addEventListener("click", event => {
+    event.preventDefault();
+    go(1, "read");
+  });
+
+  window.addEventListener("hashchange", () => {
+    const before = state.scene + "/" + state.step;
+    parseHash();
+    if (before !== state.scene + "/" + state.step) render();
+  });
+
+  /* ---------- boot ---------- */
+  document.getElementById("methodList").innerHTML = DATA.method.map(item =>
+    "<li><b>" + esc(item.name) + "</b>" + esc(item.desc) + "</li>"
+  ).join("");
+  parseHash();
+  render();
+  updateMeter();
+})();
+</script>
+</body>
+</html>
