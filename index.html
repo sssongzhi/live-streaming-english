@@ -100,6 +100,26 @@
   .meter-fill{position:absolute;inset:0 auto 0 0;width:0;background:var(--green);transition:width .45s cubic-bezier(.2,.7,.2,1)}
   .meter-text{font-size:var(--text-small);letter-spacing:.03em;color:var(--ink-3);white-space:nowrap}
 
+  /* ---------- home ---------- */
+  [hidden]{display:none!important}
+  .home{max-width:var(--maxw);margin:auto;padding:clamp(34px,7vw,88px) clamp(20px,4vw,44px) 64px}
+  .home-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:clamp(32px,7vw,96px);align-items:start}
+  .home h1{font-size:var(--text-title);line-height:1.25;margin:0}
+  .home-intro p{font-size:var(--text-body);color:var(--ink-2);margin:14px 0 24px;max-width:30em}
+  .home-start{display:inline-flex;gap:18px;align-items:center;padding:10px 17px;background:var(--accent);color:var(--paper-2);font-weight:600;border-radius:4px}
+  .home-start:hover{background:#8d2e1e}
+  .home h2{font-size:var(--text-heading);margin:0 0 12px}
+  .home-scenes{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
+  .home-scenes li{border-bottom:1px solid var(--rule)}
+  .home-scenes a{display:grid;grid-template-columns:2em minmax(0,1fr) auto;gap:10px;align-items:center;padding:12px 4px;font-size:var(--text-body)}
+  .home-scenes a:hover{color:var(--accent);background:var(--accent-soft)}
+  .home-scene-number{color:var(--ink-3);font-size:var(--text-small);font-variant-numeric:tabular-nums}
+  .home-arrow{color:var(--accent)}
+  .brand:focus-visible,.home a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+  @media (max-width:720px){
+    .home-grid{grid-template-columns:1fr}
+  }
+
   /* ---------- shell ---------- */
   .shell{
     position:relative;
@@ -555,7 +575,7 @@ font-size:var(--text-small);letter-spacing:.03em;
 <div class="grain" aria-hidden="true"></div>
 
 <header class="masthead">
-  <a class="brand" href="#s1/read" id="brand">
+  <a class="brand" href="#home" aria-label="海外社交直播英语首页">
     <span class="brand-mark">EN</span>
     <span class="brand-text">
       <strong>海外社交直播英语</strong>
@@ -570,7 +590,21 @@ font-size:var(--text-small);letter-spacing:.03em;
   </div>
 </header>
 
-<div class="shell">
+<main class="home" id="home">
+  <div class="home-grid">
+    <section class="home-intro">
+      <h1 tabindex="-1">海外社交直播英语练习</h1>
+      <p>从公会沟通到主播运营，围绕真实业务场景练习英文阅读、句法、词汇、回译和表达。</p>
+      <a class="home-start" id="homeStart" href="#s1/read"><span>开始练习</span><span aria-hidden="true">→</span></a>
+    </section>
+    <nav aria-labelledby="homeScenesTitle">
+      <h2 id="homeScenesTitle">练习场景</h2>
+      <ol class="home-scenes" id="homeScenes"></ol>
+    </nav>
+  </div>
+</main>
+
+<div class="shell" id="practice" hidden>
   <aside class="side">
     <div class="side-head">
       <p class="eyebrow">Training material</p>
@@ -609,6 +643,9 @@ font-size:var(--text-small);letter-spacing:.03em;
   const STEPS = DATA.steps;
   const STEP_IDS = STEPS.map(s => s.id);
   const KEY = "elelive.english.practice.v1";
+  const home = document.getElementById("home");
+  const practice = document.getElementById("practice");
+  const homeStart = document.getElementById("homeStart");
   const stage = document.getElementById("stage");
   const nav = document.getElementById("sceneNav");
   const drawer = document.getElementById("drawer");
@@ -677,11 +714,23 @@ font-size:var(--text-small);letter-spacing:.03em;
   }
 
   /* ---------- navigation ---------- */
-  function parseHash(){
+  function renderRoute(){
     const match = location.hash.match(/^#s(\d+)\/([a-z]+)$/);
-    if (match && sceneById(Number(match[1])) && STEP_IDS.includes(match[2])) {
-      state.scene = Number(match[1]);
+    const scene = match && sceneById(Number(match[1]));
+    const showPractice = Boolean(scene && STEP_IDS.includes(match[2]));
+    home.hidden = showPractice;
+    practice.hidden = !showPractice;
+    if (showPractice) {
+      state.scene = scene.id;
       state.step = match[2];
+      persist(true);
+      render();
+    } else {
+      document.title = DATA.meta.title;
+      homeStart.href = "#s" + state.scene + "/" + state.step;
+      homeStart.firstElementChild.textContent = state.scene === 1 && state.step === "read"
+        && !SCENES.some(item => STEP_IDS.some(step => isDone(item.id, step))) ? "开始练习" : "继续练习";
+      updateMeter();
     }
   }
 
@@ -712,7 +761,7 @@ font-size:var(--text-small);letter-spacing:.03em;
     return '' +
       '<header class="scene-head">' +
         '<p class="eyebrow">Scene ' + pad(scene.id) + " · " + (scene.writing ? "Writing" : "Reading") + '</p>' +
-        '<h1>' + esc(scene.title) + '</h1>' +
+        '<h1 tabindex="-1">' + esc(scene.title) + '</h1>' +
         '<p class="scene-meta">' + scene.paragraphs.length + " 段 · " + scene.sentences.length + " 句 · 约 " + minutes + " 分钟 · " + words + ' words</p>' +
         '<ul class="objectives">' + scene.objectives.map(item => "<li>" + esc(item) + "</li>").join("") + '</ul>' +
       '</header>';
@@ -1166,24 +1215,22 @@ font-size:var(--text-small);letter-spacing:.03em;
     if (event.key === "Escape" && drawer.classList.contains("is-open")) closeDrawer();
   });
 
-  document.getElementById("brand").addEventListener("click", event => {
-    event.preventDefault();
-    go(1, "read");
-  });
-
   window.addEventListener("hashchange", () => {
-    const before = state.scene + "/" + state.step;
-    parseHash();
-    if (before !== state.scene + "/" + state.step) render();
+    if (!practice.hidden) persist(true);
+    renderRoute();
+    window.scrollTo(0, 0);
+    (practice.hidden ? home : stage).querySelector("h1").focus({ preventScroll: true });
   });
 
   /* ---------- boot ---------- */
   document.getElementById("methodList").innerHTML = DATA.method.map(item =>
     "<li><b>" + esc(item.name) + "</b>" + esc(item.desc) + "</li>"
   ).join("");
-  parseHash();
-  render();
-  updateMeter();
+  document.getElementById("homeScenes").innerHTML = SCENES.map(scene =>
+    '<li><a href="#s' + scene.id + '/read"><span class="home-scene-number" aria-hidden="true">' +
+    pad(scene.id) + '</span><span>' + esc(scene.title) + '</span><span class="home-arrow" aria-hidden="true">→</span></a></li>'
+  ).join("");
+  renderRoute();
 })();
 </script>
 </body>
